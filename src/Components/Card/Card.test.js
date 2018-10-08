@@ -2,10 +2,15 @@ import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import Card from './Card'
 
-describe('Scroll', () => {
+describe('Card', () => {
+  let wrapper;
 
-  it('should have a test', () => {
-    
-  })
+  beforeEach(() => {
+    wrapper = shallow(<Card />);
+  });
 
-})
+  it('matches the snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+
+});
