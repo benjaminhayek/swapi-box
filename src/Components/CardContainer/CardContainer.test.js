@@ -1,15 +1,11 @@
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import { createSerializer } from 'enzyme-to-json';
+import React from 'react';
+import { shallow, mount } from 'enzyme';
+import CardContainer from './CardContainer';
 
-expect.addSnapshotSerializer(createSerializer({mode: 'deep'}));
+describe('Scroll', () => {
 
-const localStorageMock = {
-  getItem: jest.fn(),
-  setItem: jest.fn(),
-  clear: jest.fn(),
-};
+  it('should have a test', () => {
+    
+  })
 
-configure({ adapter: new Adapter() });
-
-global.localStorage = localStorageMock;
+})
