@@ -10,6 +10,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+<<<<<<< HEAD
+=======
+        <header className="App-header">
+          SWAPI BOX
+        </header>
+        <Button />
+        <CardContainer />
+>>>>>>> dea4dd0ca027d26220285d15cbe607207cb83f27
       </div>
     );
   }

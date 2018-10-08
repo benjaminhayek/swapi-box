@@ -7,7 +7,7 @@ expect.addSnapshotSerializer(createSerializer({mode: 'deep'}));
 const localStorageMock = {
   getItem: jest.fn(),
   setItem: jest.fn(),
-  clear: jest.fn(),
+  clear: jest.fn()
 };
 
 configure({ adapter: new Adapter() });
