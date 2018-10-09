@@ -1,0 +1,6 @@
+.card {
+  background: orange;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  width: 25%;
+}

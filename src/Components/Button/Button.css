@@ -1,0 +1,4 @@
+.buttons {
+  grid-area: buttons;
+  background: blue;
+}
