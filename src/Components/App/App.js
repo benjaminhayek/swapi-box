@@ -28,11 +28,11 @@ class App extends Component {
     } else { 
       return (
         <div className="App">
+          <header className="App-header">
+              SWAPI BOX
+          </header>
           <Scroll movieScroll={ movieScroll }/>
           <section className='content'>
-            <header className="App-header">
-              SWAPI BOX
-            </header>
             <Button />
           </section>
         </div>

@@ -2,20 +2,18 @@
   text-align: center;
   display: grid;
   grid-template-columns: 150px 1fr;
+  grid-template-rows: 1fr 1fr 1fr; 
 }
-
 
 .App-header {
   background-color: #282c34;
-  display: flex;
-  flex-direction: column;
+/*  display: flex;
+  flex-direction: column;*/
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  grid-area: header;
 }
-
-
 
 .App-link {
   color: #61dafb;

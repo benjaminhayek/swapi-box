@@ -9,8 +9,8 @@ const Scroll = ({ movieScroll }) => {
   const randomMovie = movieScroll[getRandomIndice];
   return (
     <section className='scroll-container'>
+      <CardContainer />
       <Crawl>
-        <CardContainer />
         <p>{randomMovie.opening_crawl}</p>
         <h3>{randomMovie.title}</h3>
         <h4>{randomMovie.release_date}</h4>
