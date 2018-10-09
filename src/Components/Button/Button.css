@@ -1,4 +1,17 @@
-.buttons {
+.button-container {
+  /*display: flex;*/
   grid-area: buttons;
-  background: blue;
+  background: black;
+}
+
+.button {
+  justify-content: space-between;
+  background: none;
+  background-color: #000;
+  color: white;
+  border: none;
+}
+
+.fab {
+  font-size: 100px;
 }

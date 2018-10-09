@@ -4,6 +4,7 @@ import Button from '../Button/Button';
 import Card from  '../Card/Card';
 import CardContainer from '../CardContainer/CardContainer';
 import Scroll from '../Scroll/Scroll';
+// import 'react-star-wars-crawl/lib/index.css';
 
 
 class App extends Component {
