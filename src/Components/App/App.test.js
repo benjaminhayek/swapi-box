@@ -21,9 +21,17 @@ describe('App', () => {
   });
 
   it('should have a default state', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
+    const wrapper = shallow(<App />);
     expect(wrapper.state()).toEqual({"movieScroll": [], "isLoaded": false});
   });
-
+  it('should have change state on fetch call', () => {
+    const mockFetch = (data) => jest.fn().mockImplementation(() => {
+      Promise.resolve({
+        ok: true,
+        json: () => {data}
+      })
+    });
+    global.fetch = mockFetch({results: [1]})
+    expect(wrapper.state()).toEqual({'movieScroll': [1]})
+  })
 });
