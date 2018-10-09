@@ -3,9 +3,11 @@ import './Card.css';
 
 const Card = (props) => {
   return(
-    <div>
+    <div className='card'>
       <h3>Name</h3>
-      <button>Favs</button>
+      <div>
+        <button>Favs</button>
+      </div>
       <ul>
         <li>
           pop

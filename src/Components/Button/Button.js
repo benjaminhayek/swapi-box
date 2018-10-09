@@ -3,7 +3,7 @@ import './Button.css';
 
 const Button = (props) => {
   return (
-    <section>
+    <section className="buttons">
       <button>People</button>
       <button>Planets</button>
       <button>Vehicles</button>

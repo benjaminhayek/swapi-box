@@ -1,0 +1,4 @@
+.scroll-container{
+  grid-area: scroll;
+  background-color: magenta;
+}

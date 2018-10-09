@@ -4,7 +4,7 @@ import Card from '../Card/Card';
 
 const CardContainer = (props) => {
   return (
-    <section>
+    <section className="card-container">
       <Card /> 
     </section>
   );
