@@ -20,4 +20,10 @@ describe('App', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should have a default state', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
+    expect(wrapper.state()).toEqual({"movieScroll": [], "isLoaded": false});
+  });
+
 });
