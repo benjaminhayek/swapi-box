@@ -10,6 +10,7 @@ const localStorageMock = {
   clear: jest.fn()
 };
 
+const mockfetch = 
 configure({ adapter: new Adapter() });
 
 global.localStorage = localStorageMock;
