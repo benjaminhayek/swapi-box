@@ -9,6 +9,7 @@ exports[`App matches the snapshot 1`] = `
   >
     SWAPI BOX
   </header>
+  <Scroll />
   <Button />
   <CardContainer />
 </div>
