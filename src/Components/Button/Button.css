@@ -7,8 +7,9 @@
   top: 0px;
   left: 0px;
   width: 150px;
+  color: white;
+  border-right: solid 1px white;
 }
-
 .button {
   justify-content: space-between;
   background: none;
@@ -18,7 +19,6 @@
   justify-self: center;
   display: inherit;
 }
-
 .fab {
   font-size: 100px;
 }

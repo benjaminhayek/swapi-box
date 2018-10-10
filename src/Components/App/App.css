@@ -5,13 +5,9 @@
   display: grid;
   grid-template-columns: 150px 1fr;
 }
-
-
-
 .App-link {
   color: #61dafb;
 }
-
 li {
   list-style: none;
 }
@@ -24,6 +20,8 @@ header {
   justify-content: center;
   color: white;
   font-family: 'Russo One', sans-serif;
+  margin: 0;
   margin-top: 20px;
   font-size: 3em;
+  width: 100%;
 }

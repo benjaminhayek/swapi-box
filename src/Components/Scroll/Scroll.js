@@ -7,6 +7,7 @@ import CardContainer from '../CardContainer/CardContainer';
 const Scroll = ({ movieScroll }) => {
   const getRandomIndice = Math.floor(Math.random() * Math.floor(6));
   const randomMovie = movieScroll[getRandomIndice];
+
   return (
     <section className='scroll-container'>
       <CardContainer />

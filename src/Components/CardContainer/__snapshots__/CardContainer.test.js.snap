@@ -5,5 +5,12 @@ exports[`CardContainer matches the snapshot 1`] = `
   className="card-container"
 >
   <Card />
+  <Card />
+  <Card />
+  <Card />
+  <Card />
+  <Card />
+  <Card />
+  <Card />
 </section>
 `;
