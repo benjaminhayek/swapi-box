@@ -1,18 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button matches the snapshot 1`] = `
-<section>
-  <button>
+<section
+  className="button-container"
+>
+  <button
+    className="favorites-btn button"
+  >
+    <i
+      className="fab fa-trade-federation"
+    />
+    Favorites=0
+  </button>
+  <button
+    className="people-btn button"
+  >
+    <i
+      className="fab fa-jedi-order"
+    />
     People
   </button>
-  <button>
+  <button
+    className="planets-btn button"
+  >
+    <i
+      className="fab fa-empire"
+    />
     Planets
   </button>
-  <button>
+  <button
+    className="vehicles-btn button"
+  >
+    <i
+      className="fab fa-galactic-republic"
+    />
     Vehicles
-  </button>
-  <button>
-    Favs
   </button>
 </section>
 `;

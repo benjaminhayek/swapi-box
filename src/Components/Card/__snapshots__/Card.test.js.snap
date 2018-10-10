@@ -1,13 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Card matches the snapshot 1`] = `
-<div>
+<div
+  className="card"
+>
   <h3>
     Name
   </h3>
-  <button>
-    Favs
-  </button>
+  <div>
+    <button>
+      Favs
+    </button>
+  </div>
   <ul>
     <li>
       pop

@@ -1,4 +1,24 @@
-.buttons {
-  grid-area: buttons;
-  background: blue;
+.button-container {
+  background: black;
+  display: grid;
+  align-self: center;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 150px;
+  color: white;
+  border-right: solid 1px white;
+}
+.button {
+  justify-content: space-between;
+  background: none;
+  background-color: #000;
+  color: white;
+  border: none;
+  justify-self: center;
+  display: inherit;
+}
+.fab {
+  font-size: 100px;
 }

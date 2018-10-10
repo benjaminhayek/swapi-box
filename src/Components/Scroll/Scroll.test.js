@@ -3,9 +3,15 @@ import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 
 describe('Scroll', () => {
+  let wrapper;
 
-  it('should have a test', () => {
-    
+  beforeEach(() => {
+    wrapper = shallow(<Scroll 
+                        movieScroll={[1, 2, 3, 4, 5, 7]}/>);
+  });
+
+  it('should match the snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
   })
 
 })
