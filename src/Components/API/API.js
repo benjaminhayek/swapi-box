@@ -1,5 +1,5 @@
-export const getMovieScroll = async () => { 
-  const response = await fetch("https://swapi.co/api/films/")
+export const searchStarWarsAPI = async (url) => { 
+  const response = await fetch(url || "https://swapi.co/api/" )
 
   if(response.status >= 400) {
     throw new Error('fetch failed')

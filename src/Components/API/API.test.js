@@ -1,4 +1,4 @@
-import { getMovieScroll } from './API';
+import { searchStarWarsAPI } from './API';
 
 
 describe('API', () => {
@@ -7,9 +7,9 @@ describe('API', () => {
       status: 200,
       json: () => Promise.resolve({results: []})
     }))
-    const expected = "https://swapi.co/api/films/"
+    const expected = "https://swapi.co/api/"
 
-    await getMovieScroll();
+    await searchStarWarsAPI();
 
     expect(window.fetch).toHaveBeenCalledWith(expected)
   })
@@ -19,8 +19,8 @@ describe('API', () => {
         json: () => Promise.resolve({results: []})
       }))
     
-    const result = await getMovieScroll()
-    expect(getMovieScroll()).resolves.toEqual({results: []})
+    const result = await searchStarWarsAPI()
+    expect(searchStarWarsAPI()).resolves.toEqual({results: []})
     })
 
   it('throw an error if status is not ok', async () => {
@@ -29,6 +29,6 @@ describe('API', () => {
       status: 500,
         json: () => Promise.resolve({results: []})
       }))
-    await expect(getMovieScroll()).rejects.toEqual(expected)
+    await expect(searchStarWarsAPI()).rejects.toEqual(expected)
     })
   })

@@ -11,14 +11,21 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
+      starWarsDirectory: {},
       movieScroll: [],
-      isLoaded: false
+      isLoaded: false,
     }
   }
 
   async componentDidMount() {
-    const movieScroll = await API.getMovieScroll();
-    this.setState({movieScroll: movieScroll.results, isLoaded: true})
+    const starWarsData = await API.searchStarWarsAPI();
+    const movieScroll = await API.searchStarWarsAPI(starWarsData.films)
+
+    this.setState({
+        starWarsDirectory: starWarsData,
+        movieScroll: movieScroll.results, 
+        isLoaded: true
+      })
   }
 
   render() {
