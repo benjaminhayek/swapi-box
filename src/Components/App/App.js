@@ -3,6 +3,7 @@ import './App.css';
 import Button from '../Button/Button';
 import Card from  '../Card/Card';
 import Scroll from '../Scroll/Scroll';
+import * as API from '../API/API';
 // import 'react-star-wars-crawl/lib/index.css';
 
 
@@ -15,10 +16,9 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    fetch("https://swapi.co/api/films/")
-      .then(response => response.json())
-      .then(json => this.setState({movieScroll: json.results, isLoaded:true}))
+  async componentDidMount() {
+    const movieScroll = await API.getMovieScroll();
+    this.setState({movieScroll: movieScroll.results, isLoaded: true})
   }
 
   render() {
