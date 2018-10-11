@@ -34,7 +34,8 @@ class App extends Component {
   }
 
   buttonHasBeenPressed = async (url, categoryName) => {
-    const category = await API.searchStarWarsAPI(url)
+    const category = await API.makePeopleCard(url)
+    console.log(category)
     this.setState({
       starWarsDirectory: {
         ...this.state.starWarsDirectory,

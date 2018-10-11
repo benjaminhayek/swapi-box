@@ -11,7 +11,7 @@ const Button = ({ buttonHasBeenPressed, directory }) => {
             Favorites=0
         </button>
         <button 
-          onClick={() => buttonHasBeenPressed(directory.people)}  
+          onClick={() => buttonHasBeenPressed(directory.people, 'people')}  
           className='people-btn button' >
           <i className="fab fa-jedi-order"></i>
             People
