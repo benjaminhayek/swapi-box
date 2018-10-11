@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Button.css';
 
-const Button = ({ searchStarWarsApi, directory }) => {
+const Button = ({ buttonHasBeenPressed, directory }) => {
     return (
       <section className="button-container">
         <button 
@@ -11,19 +11,19 @@ const Button = ({ searchStarWarsApi, directory }) => {
             Favorites=0
         </button>
         <button 
-          onClick={() => searchStarWarsApi(directory.people)}  
+          onClick={() => buttonHasBeenPressed(directory.people, 'people')}  
           className='people-btn button' >
           <i className="fab fa-jedi-order"></i>
             People
         </button>
         <button 
-          onClick={() => searchStarWarsApi(directory.planets)}  
+          onClick={() => buttonHasBeenPressed(directory.planets, 'planets')}  
           className='planets-btn button'>
           <i className="fab fa-empire"></i>
             Planets
         </button>
         <button 
-          onClick={() => searchStarWarsApi(directory.vehiclesu)}  
+          onClick={() => buttonHasBeenPressed(directory.vehicles, 'vehicles')}  
           className='vehicles-btn button'>
           <i className="fab fa-galactic-republic"></i>
             Vehicles

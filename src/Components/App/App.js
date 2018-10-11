@@ -32,6 +32,15 @@ class App extends Component {
       })
   }
 
+  buttonHasBeenPressed = (url, categoryName) => {
+    const category = API.searchStarWarsAPI(url)
+    this.setState({
+      starWarsDirectory: {
+        [categoryName]: category
+      }
+    })
+  }
+
   render() {
     const { movieScroll, isLoaded } = this.state
     if(!isLoaded){
@@ -42,7 +51,7 @@ class App extends Component {
         className="App">
           <section className='content'>
             <Button 
-              searchStarWarsAPI={API.searchStarWarsAPI} 
+              buttonHasBeenPressed={this.buttonHasBeenPressed} 
               directory={this.state.starWarsDirectory} />
           </section>
             <header>
