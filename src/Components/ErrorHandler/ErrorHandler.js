@@ -21,9 +21,7 @@ class ErrorHandler extends Component {
       )
     } else {
       return (
-        <ErrorHandler>
-          <App />
-        </ErrorHandler>
+        this.props.children
       )
     } 
   }
