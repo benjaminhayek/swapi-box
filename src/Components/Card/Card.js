@@ -4,7 +4,7 @@ import './Card.css';
 const Card = (props) => {
   return(
     <div className='card'>
-      <h3>Name</h3>
+      <h3>{props.name}</h3>
       <div>
         <button>Favs</button>
       </div>

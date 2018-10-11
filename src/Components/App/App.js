@@ -32,17 +32,18 @@ class App extends Component {
       })
   }
 
-  buttonHasBeenPressed = (url, categoryName) => {
-    const category = API.searchStarWarsAPI(url)
+  buttonHasBeenPressed = async (url, categoryName) => {
+    const category = await API.searchStarWarsAPI(url)
     this.setState({
       starWarsDirectory: {
+        ...this.state.starWarsDirectory,
         [categoryName]: category
       }
     })
   }
 
   render() {
-    const { movieScroll, isLoaded } = this.state
+    const { movieScroll, isLoaded, starWarsDirectory } = this.state
     if(!isLoaded){
       return <div> Loading.... </div>;
     } else { 
@@ -52,11 +53,14 @@ class App extends Component {
           <section className='content'>
             <Button 
               buttonHasBeenPressed={this.buttonHasBeenPressed} 
-              directory={this.state.starWarsDirectory} />
+              directory={starWarsDirectory} />
           </section>
             <header>
              <h1 className="title">SWAPI BOX</h1>
-              <Scroll movieScroll={ movieScroll }/>
+              <Scroll 
+                movieScroll={ movieScroll }
+                starWarsDirectory={starWarsDirectory}
+              />
             </header>
         </div>
       );
