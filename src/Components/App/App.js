@@ -35,11 +35,12 @@ class App extends Component {
 
   buttonHasBeenPressed = async (url, categoryName) => {
     const category = await API.makePeopleCard(url)
-    console.log(category)
+    const cleanedData = API.cleanPeopleData(category)
+
     this.setState({
       starWarsDirectory: {
         ...this.state.starWarsDirectory,
-        [categoryName]: category
+        [categoryName]: cleanedData
       }
     })
   }

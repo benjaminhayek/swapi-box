@@ -20,6 +20,22 @@ export const makePeopleCard = async (url) => {
   return Promise.all(unresolvedPromises)
 }
 
-export const cleanPeopleData = async (category) => {
-  
+export const cleanPeopleData = category => {
+  const personCard = category.map(item => {
+    return {
+      name: item.properName,
+      properties: {
+        planet: item.name,
+        population: item.population,
+        species: item.species.name
+      }
+    }
+
+  })
+
+  console.log(personCard)
+  return
 }
+
+
+
