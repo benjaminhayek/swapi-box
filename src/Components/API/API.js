@@ -33,8 +33,7 @@ export const cleanPeopleData = category => {
 
   })
 
-  console.log(personCard)
-  return
+  return personCard
 }
 
 

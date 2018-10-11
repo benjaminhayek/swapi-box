@@ -4,16 +4,22 @@ exports[`Card matches the snapshot 1`] = `
 <div
   className="card"
 >
-  <h3 />
+  <h3>
+    meow
+  </h3>
+  <h4>
+    meow
+  </h4>
+  <h4>
+    meow
+  </h4>
+  <h4>
+    meow
+  </h4>
   <div>
     <button>
       Favs
     </button>
   </div>
-  <ul>
-    <li>
-      pop
-    </li>
-  </ul>
 </div>
 `;

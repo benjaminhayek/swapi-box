@@ -1,16 +1,13 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import Card from './Card'
+import ErrorHandler from './ErrorHandler'
 
-describe('Card', () => {
+describe('ErrorHandler', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Card 
-                name={'meow'}
-                properties={{planet: 'meow', population: 'meow', species: 'meow'}}/>);
+    wrapper = shallow(<ErrorHandler />);
   });
-
   it('matches the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });

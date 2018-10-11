@@ -6,9 +6,9 @@ const Card = (props) => {
   return(
     <div className='card'>
       <h3>{props.name}</h3>
-      <h4>{props.homeworld.name}</h4>
-      <h4>{props.homeworld.population}</h4>
-      <h4>{props.species.name}</h4>
+      <h4>{props.properties.planet}</h4>
+      <h4>{props.properties.population}</h4>
+      <h4>{props.properties.species}</h4>
       <div>
         <button>Favs</button>
       </div>
