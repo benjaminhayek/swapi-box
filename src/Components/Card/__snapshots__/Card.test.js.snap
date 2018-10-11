@@ -4,9 +4,7 @@ exports[`Card matches the snapshot 1`] = `
 <div
   className="card"
 >
-  <h3>
-    Name
-  </h3>
+  <h3 />
   <div>
     <button>
       Favs
