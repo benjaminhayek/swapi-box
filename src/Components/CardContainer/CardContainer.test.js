@@ -9,6 +9,7 @@ describe('CardContainer', () => {
     wrapper = shallow(<CardContainer
                     starWarsDirectory={{people: [{name: 'stupid',properties: {}}]}}/>);
   });
+
   it('matches the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });

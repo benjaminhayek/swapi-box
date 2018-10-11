@@ -31,4 +31,19 @@ describe('API', () => {
       }))
     await expect(searchStarWarsAPI()).rejects.toEqual(expected)
     })
+
+  it('should return an array of unsolved promises', () => {
+    
   })
+
+  // it('should return an object of unresolved promises', async () => {
+  //     window.fetch = jest.fn().mockImplementation(() => ({
+  //     status: 500,
+  //       json: () => Promise.resolve({results: []})
+  //     }))
+  //     const expected = { };
+      
+
+  //     await expect(wrapper.instance()makePeopleCard()).resolves.toEqual(expected)
+  // })
+})
