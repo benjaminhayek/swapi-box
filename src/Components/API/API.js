@@ -7,3 +7,9 @@ export const searchStarWarsAPI = async (url) => {
     return await response.json();
   }
 }
+
+export const makePeopleCard = async (url) => {
+  const people = await searchStarWarsAPI(url);
+  const species = await searchStarWarsAPI(people.results.species)
+  const planet = await searchStarWarsAPI(people.results.planet)
+}

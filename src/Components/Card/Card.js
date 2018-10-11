@@ -2,6 +2,8 @@ import React from 'react';
 import './Card.css';
 
 const Card = (props) => {
+  debugger;
+  
   return(
     <div className='card'>
       <h3>{props.name}</h3>

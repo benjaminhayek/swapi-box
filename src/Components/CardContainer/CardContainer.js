@@ -6,11 +6,12 @@ import * as API from '../API/API';
 const CardContainer = ({starWarsDirectory}) => {
   let cards;
   if(typeof starWarsDirectory.people === 'object') {
-    cards = starWarsDirectory.people.results.map(card => {
-          return <Card 
-                 name={card.name}
-                 homeworld={API.searchStarWarsAPI(card.homeworld)}
-                 species={API.searchStarWarsAPI(card.species)}
+    cards = starWarsDirectory.people.results.map((card, i) => {
+          return <Card
+                key={i + 'people'}
+                name={card.name}
+                homeworld={API.searchStarWarsAPI(card.homeworld)}
+                species={API.searchStarWarsAPI(card.species)}
                 /> 
               })
             }
