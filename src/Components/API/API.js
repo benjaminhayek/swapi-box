@@ -19,3 +19,7 @@ export const makePeopleCard = async (url) => {
   })
   return Promise.all(unresolvedPromises)
 }
+
+export const cleanPeopleData = async (category) => {
+  
+}
