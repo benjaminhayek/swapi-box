@@ -4,6 +4,7 @@ import Button from '../Button/Button';
 import Card from  '../Card/Card';
 import Scroll from '../Scroll/Scroll';
 import * as API from '../API/API';
+import ErrorHandler from '../ErrorHandler/ErrorHandler';
 
 
 class App extends Component {
@@ -48,21 +49,23 @@ class App extends Component {
       return <div> Loading.... </div>;
     } else { 
       return (
-        <div 
-        className="App">
-          <section className='content'>
-            <Button 
-              buttonHasBeenPressed={this.buttonHasBeenPressed} 
-              directory={starWarsDirectory} />
-          </section>
-            <header>
-             <h1 className="title">SWAPI BOX</h1>
-              <Scroll 
-                movieScroll={ movieScroll }
-                starWarsDirectory={starWarsDirectory}
-              />
-            </header>
-        </div>
+        <ErrorHandler>
+          <div 
+          className="App">
+            <section className='content'>
+              <Button 
+                buttonHasBeenPressed={this.buttonHasBeenPressed} 
+                directory={starWarsDirectory} />
+            </section>
+              <header>
+               <h1 className="title">SWAPI BOX</h1>
+                <Scroll 
+                  movieScroll={ movieScroll }
+                  starWarsDirectory={starWarsDirectory}
+                />
+              </header>
+          </div>
+        </ErrorHandler>
       );
     }
   }
