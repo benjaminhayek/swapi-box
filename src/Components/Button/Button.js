@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import './Button.css';
 
-class Button extends Component => {
+class Button extends Component {
   constructor() {
     super()
     this.state = {
-
+      people: {},
+      planets: {},
+      vehicles: {},
+      favorites: []
     }
   }
 

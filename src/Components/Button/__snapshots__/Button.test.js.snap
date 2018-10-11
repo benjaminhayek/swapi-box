@@ -37,7 +37,7 @@ exports[`Button matches the snapshot 1`] = `
     <i
       className="fab fa-galactic-republic"
     />
-    Vehicles u
+    Vehicles
   </button>
 </section>
 `;
