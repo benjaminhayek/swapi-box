@@ -14,6 +14,7 @@ exports[`Button matches the snapshot 1`] = `
   </button>
   <button
     className="people-btn button"
+    onClick={[Function]}
   >
     <i
       className="fab fa-jedi-order"
@@ -22,6 +23,7 @@ exports[`Button matches the snapshot 1`] = `
   </button>
   <button
     className="planets-btn button"
+    onClick={[Function]}
   >
     <i
       className="fab fa-empire"
@@ -30,11 +32,12 @@ exports[`Button matches the snapshot 1`] = `
   </button>
   <button
     className="vehicles-btn button"
+    onClick={[Function]}
   >
     <i
       className="fab fa-galactic-republic"
     />
-    Vehicles
+    Vehicles u
   </button>
 </section>
 `;

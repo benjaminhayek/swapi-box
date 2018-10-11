@@ -4,7 +4,6 @@ import Button from '../Button/Button';
 import Card from  '../Card/Card';
 import Scroll from '../Scroll/Scroll';
 import * as API from '../API/API';
-// import 'react-star-wars-crawl/lib/index.css';
 
 
 class App extends Component {
@@ -37,7 +36,9 @@ class App extends Component {
         <div 
         className="App">
           <section className='content'>
-            <Button />
+            <Button 
+              searchStarWarsAPI={API.searchStarWarsAPI} 
+              directory={this.state.starWarsDirectory} />
           </section>
             <header>
              <h1 className="title">SWAPI BOX</h1>
