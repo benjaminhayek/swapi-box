@@ -1,18 +1,7 @@
 import React, { Component } from 'react';
 import './Button.css';
 
-class Button extends Component {
-  constructor() {
-    super()
-    this.state = {
-      people: {},
-      planets: {},
-      vehicles: {},
-      favorites: []
-    }
-  }
-
-  render() {
+const Button = ({ searchStarWarsApi, directory }) => {
     return (
       <section className="button-container">
         <button 
@@ -42,6 +31,6 @@ class Button extends Component {
       </section>
     )
   }
-}
+
 
 export default Button;

@@ -10,18 +10,23 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      starWarsDirectory: {},
+      starWarsDirectory: {
+        people: {},
+        planets: {},
+        vehicles: {},
+        favorites: []
+    },
       movieScroll: [],
       isLoaded: false,
     }
   }
 
   async componentDidMount() {
-    const starWarsData = await API.searchStarWarsAPI();
-    const movieScroll = await API.searchStarWarsAPI(starWarsData.films)
+    const starWarsDirectory = await API.searchStarWarsAPI();
+    const movieScroll = await API.searchStarWarsAPI(starWarsDirectory.films)
 
     this.setState({
-        starWarsDirectory: starWarsData,
+        starWarsDirectory,
         movieScroll: movieScroll.results, 
         isLoaded: true
       })
