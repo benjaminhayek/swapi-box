@@ -44,10 +44,7 @@ class App extends Component {
     const cleanedData = API.cleanPeopleData(category)
     debugger
     this.setState({
-      stateOfButtons: {
-        ...this.state.stateOfButtons,
-        [categoryName]: !this.state.stateOfButtons[categoryName]
-      },
+      stateOfButtons: this.changeButtonValues(categoryName),
       starWarsDirectory: {
         ...this.state.starWarsDirectory,
         [categoryName]: cleanedData
@@ -55,7 +52,21 @@ class App extends Component {
     })
   }
 
-  
+  changeButtonValues = (buttonName) => {
+    let newButtonState = {}
+    const { stateOfButtons } = this.state
+    Object.keys(this.state.stateOfButtons).forEach(button => {
+      const newValue = stateOfButtons[button]
+
+      if(button === buttonName) {
+        newButtonState[button] = true
+      } else {
+        newButtonState[button] = false
+      }
+    })
+    console.log(newButtonState)
+    return newButtonState
+  }
 
   render() {
     const { movieScroll, isLoaded, starWarsDirectory, stateOfButtons} = this.state
