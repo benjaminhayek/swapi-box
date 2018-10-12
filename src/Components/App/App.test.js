@@ -40,14 +40,24 @@ describe('App', () => {
     expect(wrapper.state().stateOfButtons).toEqual(expected)
   })
 
-it('should set new state on buttonHasPressed', async () => {
+  it('should call buttonHasPressed', async () => {
     const expected = {"favorites": [], "people": {}, "planets": {}, "undefined": [], "vehicles": {}}
-        window.fetch = jest.fn().mockImplementation(() => ({
+    window.fetch = jest.fn().mockImplementation(() => ({
       status: 200,
       json: () => Promise.resolve({results: []})
     }))
     wrapper.instance().buttonHasBeenPressed()
      await API.makePeopleCard()
+    expect(wrapper.state().starWarsDirectory).toEqual(expected)
+  })
+
+  it('should call search star wars api', async () => {
+    const expected = {"favorites": [], "people": {}, "planets": {}, "vehicles": {}}
+    window.fetch = jest.fn().mockImplementation(() => ({
+      status: 200,
+      json: () => Promise.resolve({results: []})
+    }))
+    wrapper.instance().componentDidMount()
     expect(wrapper.state().starWarsDirectory).toEqual(expected)
   })
 
