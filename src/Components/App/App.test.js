@@ -25,8 +25,7 @@ describe('App', () => {
 
   it('should have a default state', () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.state()).toEqual({"movieScroll": [], "isLoaded": false, "starWarsDirectory": {"favorites": [], "people": {}, "planets": {}, "vehicles": {}
-    }});
+    expect(wrapper.state()).toEqual({"isLoaded": false, "movieScroll": [], "starWarsDirectory": {"favorites": [], "people": {}, "planets": {}, "vehicles": {}}, "stateOfButtons": {"favorite": false, "people": false, "planets": false, "vehicles": false}});
   });
   // describe('componentDidMount', () => {
   //   it('should set state on component did mount', async () => {

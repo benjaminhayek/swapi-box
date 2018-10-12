@@ -5,9 +5,10 @@ import Button from './Button'
 describe('Button', () => {
   let wrapper;
   let buttonHasBeenPressed = jest.fn()
+  let stateOfButtons = jest.fn()
 
   beforeEach(() => {
-    wrapper = shallow(<Button directory={{'people': 'people'}} buttonHasBeenPressed={buttonHasBeenPressed}/>);
+    wrapper = shallow(<Button directory={{'people': 'people'}} buttonHasBeenPressed={buttonHasBeenPressed} selected={stateOfButtons} />);
   });
 
   it('matches the snapshot', () => {
@@ -15,9 +16,9 @@ describe('Button', () => {
   });
 
   it('should call buttonHasBeenPressed function on click', () => {
-    window.console.log = jest.fn();
+    // window.console.log = jest.fn();
     wrapper.find('.favorites-btn').simulate('click');
-    expect(console.log).toBeCalled();
+    expect(buttonHasBeenPressed).toBeCalled();
   });
 
   it('should call buttonHasBeenPressed function on click', () => {

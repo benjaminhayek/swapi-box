@@ -5,7 +5,7 @@ exports[`Button matches the snapshot 1`] = `
   className="button-container"
 >
   <button
-    className="favorites-btn button"
+    className="null favorites-btn button"
     onClick={[Function]}
   >
     <i
@@ -14,7 +14,7 @@ exports[`Button matches the snapshot 1`] = `
     Favorites=0
   </button>
   <button
-    className="people-btn button"
+    className="null people-btn button"
     onClick={[Function]}
   >
     <i
@@ -23,7 +23,7 @@ exports[`Button matches the snapshot 1`] = `
     People
   </button>
   <button
-    className="planets-btn button"
+    className="null planets-btn button"
     onClick={[Function]}
   >
     <i
@@ -32,7 +32,7 @@ exports[`Button matches the snapshot 1`] = `
     Planets
   </button>
   <button
-    className="vehicles-btn button"
+    className="null vehicles-btn button"
     onClick={[Function]}
   >
     <i
