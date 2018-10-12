@@ -51,14 +51,24 @@ describe('App', () => {
     expect(wrapper.state().starWarsDirectory).toEqual(expected)
   })
 
-  it('should call search star wars api', async () => {
-    const expected = {"favorites": [], "people": {}, "planets": {}, "vehicles": {}}
+  // it('should call search star wars api', async () => {
+  //   const expected = {"favorites": [], "people": {}, "planets": {}, "vehicles": {}}
+  //   window.fetch = jest.fn().mockImplementation(() => ({
+  //     status: 200,
+  //     json: () => Promise.resolve({results: []})
+  //   }))
+  //   wrapper.instance().componentDidMount()
+  //   expect(wrapper.state().starWarsDirectory).toEqual(expected)
+  // })
+
+  it('should set state of stateOfButtons', async () => {
+    const expected = {"favorite": false, "people": false, "planets": false, "vehicles": false}
     window.fetch = jest.fn().mockImplementation(() => ({
       status: 200,
       json: () => Promise.resolve({results: []})
     }))
-    wrapper.instance().componentDidMount()
-    expect(wrapper.state().starWarsDirectory).toEqual(expected)
+    wrapper.instance().changeButtonValues()
+    expect(wrapper.state().stateOfButtons).toEqual(expected)    
   })
 
   // describe('componentDidMount', () => {
