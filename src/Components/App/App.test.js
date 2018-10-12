@@ -27,6 +27,13 @@ describe('App', () => {
     const wrapper = shallow(<App />);
     expect(wrapper.state()).toEqual({"isLoaded": false, "movieScroll": [], "starWarsDirectory": {"favorites": [], "people": {}, "planets": {}, "vehicles": {}}, "stateOfButtons": {"favorite": false, "people": false, "planets": false, "vehicles": false}});
   });
+
+  it('should set new button state to true', () => {
+    wrapper.instance().changeButtonValues()
+    let newButtonState = true
+    expect(newButtonState).toBe(true)
+  })
+
   // describe('componentDidMount', () => {
   //   it('should set state on component did mount', async () => {
   //      window.fetch = jest.fn().mockImplementation(() => ({

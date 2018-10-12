@@ -1,5 +1,4 @@
 export const searchStarWarsAPI = async (url) => { 
-  // debugger;
   const response = await fetch(url || "https://swapi.co/api/")
 
   if(response.status >= 400) {
