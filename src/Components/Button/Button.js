@@ -5,8 +5,8 @@ const Button = ({ buttonHasBeenPressed, directory, selected }) => {
     return (
       <section className="button-container">
         <button 
-          onClick={() => buttonHasBeenPressed( null,'favorites')} 
-          className={`${selected.favorites ? 'selected': null} favorites-btn button`}>
+          onClick={() => buttonHasBeenPressed( null,'favorite')} 
+          className={`${selected.favorite ? 'selected': null} favorites-btn button`}>
           <i className="fab fa-trade-federation"></i>
             Favorites=0
         </button>

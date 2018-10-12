@@ -22,3 +22,7 @@
 .fab {
   font-size: 100px;
 }
+
+.selected {
+  background: magenta;
+}

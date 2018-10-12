@@ -40,16 +40,19 @@ class App extends Component {
   }
 
   buttonHasBeenPressed = async (url, categoryName) => {
-    const category = await API.makePeopleCard(url)
-    const cleanedData = API.cleanPeopleData(category)
-    debugger
-    this.setState({
-      stateOfButtons: this.changeButtonValues(categoryName),
-      starWarsDirectory: {
-        ...this.state.starWarsDirectory,
-        [categoryName]: cleanedData
-      }
-    })
+    if(categoryName === 'favorite'){
+      return this.setState({stateOfButtons: this.changeButtonValues(categoryName)})
+    } else {
+      const category = await API.makePeopleCard(url)
+      const cleanedData = API.cleanPeopleData(category)
+      this.setState({
+        stateOfButtons: this.changeButtonValues(categoryName),
+        starWarsDirectory: {
+          ...this.state.starWarsDirectory,
+          [categoryName]: cleanedData
+        }
+      })
+    }
   }
 
   changeButtonValues = (buttonName) => {
@@ -64,7 +67,6 @@ class App extends Component {
         newButtonState[button] = false
       }
     })
-    console.log(newButtonState)
     return newButtonState
   }
 
