@@ -36,7 +36,23 @@ describe('API', () => {
       status: 200,
       json: () => Promise.resolve({results: []})
     }))
-    const expected = "https://swapi.co/api/people/"
+    let expected = "https://swapi.co/api/people/"
+    await API.makePeopleCard(expected)
+    expect(window.fetch).toHaveBeenCalledWith(expected)
+
+    expected = {
+      person: {
+        species: "https://swapi.co/api/people/"
+      }
+    }
+    await API.makePeopleCard(expected)
+    expect(window.fetch).toHaveBeenCalledWith(expected)
+
+    expected = {
+      person: {
+        homeworld: "https://swapi.co/api/people/"
+      }
+    }
     await API.makePeopleCard(expected)
     expect(window.fetch).toHaveBeenCalledWith(expected)
   })

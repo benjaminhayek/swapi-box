@@ -19,6 +19,12 @@ class App extends Component {
     },
       movieScroll: [],
       isLoaded: false,
+      stateOfButtons: {
+        favorite: false,
+        vehicles: false,
+        planets: false,
+        people: false
+      }
     }
   }
 
@@ -36,8 +42,12 @@ class App extends Component {
   buttonHasBeenPressed = async (url, categoryName) => {
     const category = await API.makePeopleCard(url)
     const cleanedData = API.cleanPeopleData(category)
-
+    debugger
     this.setState({
+      stateOfButtons: {
+        ...this.state.stateOfButtons,
+        [categoryName]: !this.state.stateOfButtons[categoryName]
+      },
       starWarsDirectory: {
         ...this.state.starWarsDirectory,
         [categoryName]: cleanedData
@@ -45,8 +55,10 @@ class App extends Component {
     })
   }
 
+  
+
   render() {
-    const { movieScroll, isLoaded, starWarsDirectory } = this.state
+    const { movieScroll, isLoaded, starWarsDirectory, stateOfButtons} = this.state
     if(!isLoaded){
       return <div> Loading.... </div>;
     } else { 
@@ -57,7 +69,9 @@ class App extends Component {
             <section className='content'>
               <Button 
                 buttonHasBeenPressed={this.buttonHasBeenPressed} 
-                directory={starWarsDirectory} />
+                directory={starWarsDirectory}
+                selected={stateOfButtons}
+              />
             </section>
               <header>
                <h1 className="title">SWAPI BOX</h1>
