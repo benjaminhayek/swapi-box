@@ -57,28 +57,13 @@ describe('API', () => {
     expect(window.fetch).toHaveBeenCalledWith(expected)
   })
 
-  it('should call the searchStarWarsAPI function', async () => {
+  it('should handle different urls', async () => {
     window.fetch = jest.fn().mockImplementation(() => ({
       status: 200,
       json: () => Promise.resolve({results: []})
     }))
-    const expected = {}
-
-    await API.cleanPeopleData()
-
-    await API.searchStarWarsAPI();
-
-    expect(API.searchStarWarsAPI).toEqual(1)
-  })
-
-  // it('should return an object of unresolved promises', async () => {
-  //     window.fetch = jest.fn().mockImplementation(() => ({
-  //     status: 500,
-  //       json: () => Promise.resolve({results: []})
-  //     }))
-  //     const expected = { };
-      
-
-  //     await expect(wrapper.instance()makePeopleCard()).resolves.toEqual(expected)
-  // })
+    const expected = Promise.resolve()
+    const thing = await API.makePeopleCard()
+    expect(API.makePeopleCard()).toEqual(expected)
+  }) 
 })
