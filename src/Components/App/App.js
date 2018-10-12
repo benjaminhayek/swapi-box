@@ -67,6 +67,7 @@ class App extends Component {
         newButtonState[button] = false
       }
     })
+    
     return newButtonState
   }
 

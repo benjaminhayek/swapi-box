@@ -41,51 +41,38 @@ describe('App', () => {
   })
 
   it('should call buttonHasPressed', async () => {
-    const expected = {"favorites": [], "people": {}, "planets": {}, "undefined": [], "vehicles": {}}
+    const expected = {"favorites": [], "people": {}, "planets": {}, "vehicles": {}}
     window.fetch = jest.fn().mockImplementation(() => ({
       status: 200,
-      json: () => Promise.resolve({results: []})
+      json: () => Promise.resolve({"favorites": [], results: [], "planets": {}, "vehicles": {}})
     }))
-    wrapper.instance().buttonHasBeenPressed()
-     await API.makePeopleCard()
+    wrapper.instance().buttonHasBeenPressed(null, 'favorite')
+    await API.makePeopleCard()
     expect(wrapper.state().starWarsDirectory).toEqual(expected)
   })
-
-  // it('should call search star wars api', async () => {
-  //   const expected = {"favorites": [], "people": {}, "planets": {}, "vehicles": {}}
-  //   window.fetch = jest.fn().mockImplementation(() => ({
-  //     status: 200,
-  //     json: () => Promise.resolve({results: []})
-  //   }))
-  //   wrapper.instance().componentDidMount()
-  //   expect(wrapper.state().starWarsDirectory).toEqual(expected)
-  // })
 
   it('should set state of stateOfButtons', async () => {
     const expected = {"favorite": false, "people": false, "planets": false, "vehicles": false}
     window.fetch = jest.fn().mockImplementation(() => ({
       status: 200,
-      json: () => Promise.resolve({results: []})
+      json: () => Promise.resolve({"favorites": [2], "people": {}, "planets": {}, "vehicles": {}})
     }))
     wrapper.instance().changeButtonValues()
     expect(wrapper.state().stateOfButtons).toEqual(expected)    
   })
 
-  // describe('componentDidMount', () => {
-  //   it('should set state on component did mount', async () => {
-  //      window.fetch = jest.fn().mockImplementation(() => ({
-  //     status: 200,
-  //     json: () => new Promise((resolve, reject) => {
-  //         resolve({
-  //           results: [1, 2, 3],
-  //         })
-  //       })
-  //     }))
-  //     const renderedComponent = await shallow(<App />);
+  describe('componentDidMount', () => {
+    it('should set state on component did mount', async () => {
+      const expected = {"favorites": [2], "people": {}, "planets": {}, "vehicles": {}}
+       window.fetch = jest.fn().mockImplementation(() => ({
+      status: 200,
+      json: () => Promise.resolve({"favorites": [2], "people": {}, "planets": {}, "vehicles": {}})
+      }))
+      const renderedComponent = await shallow(<App />);
 
-  //     await renderedComponent.update();
+      await wrapper.instance().componentDidMount();
       
-  //     expect(renderedComponent.state('movieScroll').length).toBe(2)
-  //   })
-  // })
+      expect(renderedComponent.state().starWarsDirectory).toEqual(expected)
+    })
+  })
 });

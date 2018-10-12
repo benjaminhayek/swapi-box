@@ -29,9 +29,8 @@ export const cleanPeopleData = category => {
         species: item.species.name
       }
     }
-
   })
-
+  
   return personCard
 }
 
