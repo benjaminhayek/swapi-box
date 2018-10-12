@@ -32,8 +32,13 @@ describe('App', () => {
     wrapper.instance().changeButtonValues()
     let newButtonState = true
     expect(newButtonState).toBe(true)
-  })
+  });
 
+  it('should set new state on buttonHasPressed', async () => {
+    const expected = {"favorite": false, "people": false, "planets": false, "vehicles": false}
+    wrapper.instance().buttonHasBeenPressed()
+    expect(wrapper.state().stateOfButtons).toEqual(expected)
+  })
   // describe('componentDidMount', () => {
   //   it('should set state on component did mount', async () => {
   //      window.fetch = jest.fn().mockImplementation(() => ({
