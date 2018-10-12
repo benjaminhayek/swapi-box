@@ -13,11 +13,11 @@ describe('ErrorHandler', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  // it('should set state if theres an error', () => {
-  //   const spy = spyOn(ErrorHandler.prototype, 'componentDidCatch')
-  //   mount(<ErrorHandler><App /></ErrorHandler>)
 
-  //   expect(() => { new ErrorHandler(); }).toThrowError('Ya gots an error');
-  // });
+  it('should set state if theres an error', () => {
+    const expected = true 
+    wrapper.instance().componentDidCatch()
+    expect(wrapper.state().hasError).toEqual(expected)
+  });
 
 });

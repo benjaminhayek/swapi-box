@@ -57,6 +57,7 @@ describe('API', () => {
     expect(window.fetch).toHaveBeenCalledWith(expected)
   })
 
+
   // it('should return an object of unresolved promises', async () => {
   //     window.fetch = jest.fn().mockImplementation(() => ({
   //     status: 500,
