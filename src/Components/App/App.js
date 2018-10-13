@@ -40,38 +40,25 @@ class App extends Component {
   }
 
   buttonHasBeenPressed = async (url, categoryName) => {
+    let newCards;
     if(categoryName === 'favorite'){
       return this.setState({stateOfButtons: this.changeButtonValues(categoryName)})
     }else if (categoryName === 'people') {
       const category = await API.fetchPeopleData(url)
-      const cleanedData = API.makePeopleCard(category)
-      this.setState({
-        stateOfButtons: this.changeButtonValues(categoryName),
-        starWarsDirectory: {
-          ...this.state.starWarsDirectory,
-          [categoryName]: cleanedData
-        }
-      })
+      newCards = API.makePeopleCard(category)
     }else if (categoryName === 'planets') {
       const fetchedPlanet = await API.fetchPlanetData(url);
-      const planetCard = await API.makePlanetCard(fetchedPlanet);
-      this.setState({
-        stateOfButtons: this.changeButtonValues(categoryName),
-        starWarsDirectory: {
-          ...this.state.starWarsDirectory,
-          [categoryName]: planetCard,
-        }
-      })
+      newCards = await API.makePlanetCard(fetchedPlanet);
     }else if (categoryName === 'vehicles') {
-      const fetchVehicle = await API.fetchVehicleData(url);
-      this.setState({
-        stateOfButtons: this.changeButtonValues(categoryName),
-        starWarsDirectory: {
-          ...this.state.starWarsDirectory,
-          [categoryName]: fetchVehicle,
-        }
-      })      
+      newCards = await API.fetchVehicleData(url);   
     }
+    this.setState({
+      stateOfButtons: this.changeButtonValues(categoryName),
+      starWarsDirectory: {
+        ...this.state.starWarsDirectory,
+        [categoryName]: newCards,
+      }
+    }) 
   }
 
   changeButtonValues = (buttonName) => {
