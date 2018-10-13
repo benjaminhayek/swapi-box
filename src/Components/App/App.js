@@ -55,6 +55,8 @@ class App extends Component {
     }else if (categoryName === 'planets') {
       const fetchedPlanet = await API.fetchPlanetData(url);
       console.log(fetchedPlanet)
+      const planetCard = await API.makePlanetCard(fetchedPlanet);
+      console.log(planetCard)
     }
   }
 

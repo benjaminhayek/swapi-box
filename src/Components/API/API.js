@@ -21,23 +21,41 @@ export const fetchPeopleData = async (url) => {
 
 export const fetchPlanetData = async url => {
   const planets = await searchStarWarsAPI(url);
-  const unresolvedPromises = planets.results.map( planet => {
+  const unresolvedPromises = planets.results.map( async planet => {
+    const planetResidents = await Promise.all(planet.residents.map(async resident => {
+        return await searchStarWarsAPI(resident) 
+      }))
     const planetCard = {
       name: planet.name,
       population: planet.population,
       climate: planet.climate,
       terrain: planet.terrain,
-      residents: Promise.all(planet.residents.map(async resident => {
-        return await searchStarWarsAPI(resident)
-      }))
-    }
+      residents: planetResidents
+      }
+    
     return planetCard
   })
 
-  return unresolvedPromises;
+  return Promise.all(unresolvedPromises);
 }
 
-export const makePlanetCard
+export const makePlanetCard = async category => {
+  console.log(category)
+  const planetCard = category.map(item => {
+    return {
+      name: item.name,
+      properties: [
+        item.terrain,
+        item.population,
+        item.climate,
+        ...item.residents.map(resident => {
+          return resident.name
+        })
+      ]
+    }
+  })
+  return planetCard
+}
 
 export const makePeopleCard = category => {
   const personCard = category.map(item => {
