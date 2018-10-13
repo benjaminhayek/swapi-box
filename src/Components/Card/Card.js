@@ -2,8 +2,8 @@ import React from 'react';
 import './Card.css';
 
 const Card = (props) => {
-  const cardData = props.properties.map(property => {
-    return <div>{property}</div>
+  const cardData = props.properties.map((property, i) => {
+    return <div key={property + i}>{property}</div>
   })
   return(
     <div className='card'>

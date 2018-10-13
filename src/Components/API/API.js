@@ -51,7 +51,6 @@ export const fetchVehicleData = async url => {
       ]
     } 
   })
-  console.log(vehicleData)
   return vehicleData
 }
 
@@ -83,7 +82,6 @@ export const makePeopleCard = category => {
       ]
     }
   })
-  
   return personCard
 }
 

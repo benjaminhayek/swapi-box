@@ -37,7 +37,7 @@ describe('API', () => {
       json: () => Promise.resolve({results: []})
     }))
     let expected = "https://swapi.co/api/people/"
-    await API.makePeopleCard(expected)
+    await API.fetchPeopleData(expected)
     expect(window.fetch).toHaveBeenCalledWith(expected)
 
     expected = {
@@ -45,7 +45,7 @@ describe('API', () => {
         species: "https://swapi.co/api/people/"
       }
     }
-    await API.makePeopleCard(expected)
+    await API.fetchPeopleData(expected)
     expect(window.fetch).toHaveBeenCalledWith(expected)
 
     expected = {
@@ -53,7 +53,7 @@ describe('API', () => {
         homeworld: "https://swapi.co/api/people/"
       }
     }
-    await API.makePeopleCard(expected)
+    await API.fetchPeopleData(expected)
     expect(window.fetch).toHaveBeenCalledWith(expected)
   })
 
@@ -63,7 +63,7 @@ describe('API', () => {
       json: () => Promise.resolve({results: []})
     }))
     const expected = Promise.resolve()
-    const thing = await API.makePeopleCard()
-    expect(API.makePeopleCard()).toEqual(expected)
+    const thing = await API.fetchPeopleData()
+    expect(API.fetchPeopleData()).toEqual(expected)
   }) 
 })

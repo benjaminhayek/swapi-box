@@ -47,7 +47,7 @@ describe('App', () => {
       json: () => Promise.resolve({"favorites": [], results: [], "planets": {}, "vehicles": {}})
     }))
     wrapper.instance().buttonHasBeenPressed(null, 'favorite')
-    await API.makePeopleCard()
+    await API.fetchPeopleData()
     expect(wrapper.state().starWarsDirectory).toEqual(expected)
   })
 
@@ -64,7 +64,7 @@ describe('App', () => {
   describe('componentDidMount', () => {
     it('should set state on component did mount', async () => {
       const expected = {"favorites": [2], "people": {}, "planets": {}, "vehicles": {}}
-       window.fetch = jest.fn().mockImplementation(() => ({
+      window.fetch = jest.fn().mockImplementation(() => ({
       status: 200,
       json: () => Promise.resolve({"favorites": [2], "people": {}, "planets": {}, "vehicles": {}})
       }))

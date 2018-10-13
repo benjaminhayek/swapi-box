@@ -7,7 +7,8 @@ describe('CardContainer', () => {
 
   beforeEach(() => {
     wrapper = shallow(<CardContainer
-                    starWarsDirectory={{people: [{name: 'stupid',properties: {}}]}}/>);
+                    starWarsDirectory={{people: [{name: 'stupid',properties: {}}]}}
+                    stateOfButtons={['people']}/>);
   });
 
   it('matches the snapshot', () => {
