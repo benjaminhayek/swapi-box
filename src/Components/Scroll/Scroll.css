@@ -1,5 +1,4 @@
 .scroll-container{
-  background-color: magenta;
   grid-column: 2 / span 1;
   grid-area: scroll;
 }

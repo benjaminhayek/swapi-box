@@ -2,12 +2,12 @@
   grid-area: card-container;
   background: transparent;
   display: flex;
-  position: fixed;
   grid-gap: 10px;
   padding: 10px;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   z-index: 2;
-  grid-area: card-container;
+  position: fixed;
+  overflow: auto;
 }
