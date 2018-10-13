@@ -42,9 +42,9 @@ class App extends Component {
   buttonHasBeenPressed = async (url, categoryName) => {
     if(categoryName === 'favorite'){
       return this.setState({stateOfButtons: this.changeButtonValues(categoryName)})
-    } else {
-      const category = await API.makePeopleCard(url)
-      const cleanedData = API.cleanPeopleData(category)
+    }else if (categoryName === 'people') {
+      const category = await API.fetchPeopleData(url)
+      const cleanedData = API.makePeopleCard(category)
       this.setState({
         stateOfButtons: this.changeButtonValues(categoryName),
         starWarsDirectory: {
@@ -52,6 +52,9 @@ class App extends Component {
           [categoryName]: cleanedData
         }
       })
+    }else if (categoryName === 'planets') {
+      const fetchedPlanet = await API.fetchPlanetData(url);
+      console.log(fetchedPlanet)
     }
   }
 
