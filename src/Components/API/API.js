@@ -41,7 +41,7 @@ export const fetchPlanetData = async url => {
 
 export const fetchVehicleData = async url => {
   const vehicles = await searchStarWarsAPI(url);
-  const vehicleData = vehicles.results.map( async vehicle => {
+  const vehicleData = vehicles.results.map(vehicle => {
     return {
       name: vehicle.name,
       properties: [
@@ -51,10 +51,11 @@ export const fetchVehicleData = async url => {
       ]
     } 
   })
+  console.log(vehicleData)
+  return vehicleData
 }
 
 export const makePlanetCard = async category => {
-  console.log(category)
   const planetCard = category.map(item => {
     return {
       name: item.name,

@@ -62,6 +62,15 @@ class App extends Component {
           [categoryName]: planetCard,
         }
       })
+    }else if (categoryName === 'vehicles') {
+      const fetchVehicle = await API.fetchVehicleData(url);
+      this.setState({
+        stateOfButtons: this.changeButtonValues(categoryName),
+        starWarsDirectory: {
+          ...this.state.starWarsDirectory,
+          [categoryName]: fetchVehicle,
+        }
+      })      
     }
   }
 
