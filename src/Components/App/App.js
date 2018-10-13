@@ -63,17 +63,13 @@ class App extends Component {
 
   changeButtonValues = (buttonName) => {
     let newButtonState = {}
-    const { stateOfButtons } = this.state
     Object.keys(this.state.stateOfButtons).forEach(button => {
-      const newValue = stateOfButtons[button]
-
       if(button === buttonName) {
         newButtonState[button] = true
       } else {
         newButtonState[button] = false
       }
-    })
-    
+    }) 
     return newButtonState
   }
 
