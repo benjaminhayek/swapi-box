@@ -45,12 +45,12 @@ export const makePlanetCard = async category => {
     return {
       name: item.name,
       properties: [
-        item.terrain,
-        item.population,
-        item.climate,
-        ...item.residents.map(resident => {
+        `Terrain: ${item.terrain}`,
+        `Population: ${item.population}`,
+        `Climate: ${item.climate}`,
+        `Residents: ${item.residents.map(resident => {
           return resident.name
-        })
+        })}`
       ]
     }
   })
@@ -61,11 +61,11 @@ export const makePeopleCard = category => {
   const personCard = category.map(item => {
     return {
       name: item.properName,
-      properties: {
-        planet: item.name,
-        population: item.population,
-        species: item.species.name
-      }
+      properties: [
+        `Planet: ${item.name}`,
+        `Population: ${item.population}`,
+        `Species: ${item.species.name}`
+      ]
     }
   })
   
