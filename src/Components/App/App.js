@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Button from '../Button/Button';
-import Card from  '../Card/Card';
 import Scroll from '../Scroll/Scroll';
 import * as API from '../API/API';
 import ErrorHandler from '../ErrorHandler/ErrorHandler';

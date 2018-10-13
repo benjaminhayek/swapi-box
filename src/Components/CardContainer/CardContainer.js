@@ -1,7 +1,6 @@
 import React from 'react';
 import './CardContainer.css';
 import Card from '../Card/Card';
-import * as API from '../API/API';
 
 const CardContainer = ({starWarsDirectory, stateOfButtons}) => {
   const cardCategory = Object.keys(stateOfButtons).filter(category => {

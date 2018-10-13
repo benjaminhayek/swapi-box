@@ -10,7 +10,9 @@ describe('CardContainer', () => {
                     starWarsDirectory={{people: [{name: 'stupid',properties: {}}]}}
                     stateOfButtons={['people']}/>);
   });
-
+  it('should have cards be an array', () => {
+    
+  })
   it('matches the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
