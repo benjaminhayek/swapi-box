@@ -93,5 +93,5 @@ export const checkLocalStorage = key => {
   const retrievedJSON = localStorage.getItem(key)
   const newData = JSON.parse(retrievedJSON)
   console.log(newData)
-  return 
+  return newData
 }
