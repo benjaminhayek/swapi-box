@@ -85,4 +85,25 @@ describe('App', () => {
     await wrapper.instance().buttonHasBeenPressed(null, 'people');
     expect(wrapper.state().starWarsDirectory).toEqual(expected)
   })
+  it('buttonHasBeenPressed should send back correct data based on parameters', async () => {
+    window.fetch = jest.fn().mockImplementation(() => ({
+    status: 200,
+    json: () => Promise.resolve({"favorites": [2], results: [{residents: [2]}], "planets": {}, "vehicles": {}})
+    }))
+    const expected = {"favorites": [], "planets": [{"name": undefined, "properties": ["Terrain: undefined", "Population: undefined", "Climate: undefined", "Residents: "]}], "results": [], "vehicles": {}}
+
+    await wrapper.instance().buttonHasBeenPressed(null, 'planets');
+    expect(wrapper.state().starWarsDirectory).toEqual(expected)
+  })
+  it('buttonHasBeenPressed should send back correct data based on parameters', async () => {
+    window.fetch = jest.fn().mockImplementation(() => ({
+    status: 200,
+    json: () => Promise.resolve({"favorites": [2], results: [{residents: [2]}], "planets": {}, "vehicles": {}})
+    }))
+    const expected = {"favorites": [2], "planets": {}, "results": [{"residents": [2]}], "vehicles": [{"name": undefined, "properties": ["Model: undefined", "Class: undefined", "# Of Passengers: undefined"]}]}
+
+
+    await wrapper.instance().buttonHasBeenPressed(null, 'vehicles');
+    expect(wrapper.state().starWarsDirectory).toEqual(expected)
+  })  
 });
