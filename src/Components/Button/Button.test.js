@@ -41,5 +41,11 @@ describe('Button', () => {
     it('should render the selected class to null if false', () => {
     wrapper = shallow(<Button directory={{'people': 'people'}} buttonHasBeenPressed={buttonHasBeenPressed} selected={{favorite: true}} />)
     expect(wrapper.find('.selected').length).toEqual(1)
+    wrapper = shallow(<Button directory={{'people': 'people'}} buttonHasBeenPressed={buttonHasBeenPressed} selected={{vehicles: true}} />)
+    expect(wrapper.find('.selected').length).toEqual(1)
+    wrapper = shallow(<Button directory={{'people': 'people'}} buttonHasBeenPressed={buttonHasBeenPressed} selected={{people: true}} />)
+    expect(wrapper.find('.selected').length).toEqual(1)
+    wrapper = shallow(<Button directory={{'people': 'people'}} buttonHasBeenPressed={buttonHasBeenPressed} selected={{planets: true}} />)
+    expect(wrapper.find('.selected').length).toEqual(1)        
   })
 });

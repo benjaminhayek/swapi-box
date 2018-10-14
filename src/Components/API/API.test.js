@@ -66,4 +66,29 @@ describe('API', () => {
     const thing = await API.fetchPeopleData()
     expect(API.fetchPeopleData()).toEqual(expected)
   }) 
+
+  it('should return an object with the proper values', () => {
+    const parameter = [{properName: 'name', name: 'name', population: 'population', species: {name: 'name'}}];
+    const functionCall = API.makePeopleCard(parameter)
+    const expected = [{name: 'name', properties: ['Planet: name', 'Population: population', 'Species: name']}]
+    expect(functionCall).toEqual(expected)
+  })
+
+  it('should return an object with the proper values', () => {
+    const parameter = [{name: 'name', terrain: 'terrain', population: 'population', climate: 'climate', residents: [{name: 'array'}]}];
+    const functionCall = API.makePlanetCard(parameter)
+    const expected = [{"name": "name", "properties": ["Terrain: terrain", "Population: population", "Climate: climate", "Residents: array"]}]
+    expect(functionCall).toEqual(expected)
+  })
+
+  it('should return an object with the proper values', async () => {
+    const parameter = [{name: 'name', model: 'model', class: 'class', passengers: 'passengers'}];
+    window.fetch = jest.fn().mockImplementation(() => ({
+      status: 200,
+      json: () => Promise.resolve({results: parameter})
+    }))
+    const functionCall = await API.fetchVehicleData(parameter)
+    const expected = [{"name": "name", "properties": ["Model: model", "Class: undefined", "# Of Passengers: passengers"]}]
+    expect(functionCall).toEqual(expected)
+  })
 })

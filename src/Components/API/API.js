@@ -54,7 +54,7 @@ export const fetchVehicleData = async url => {
   return vehicleData
 }
 
-export const makePlanetCard = async category => {
+export const makePlanetCard = category => {
   const planetCard = category.map(item => {
     return {
       name: item.name,
