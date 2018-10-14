@@ -75,4 +75,14 @@ describe('App', () => {
       expect(renderedComponent.state().starWarsDirectory).toEqual(expected)
     })
   })
+  it('buttonHasBeenPressed should send back correct data based on parameters', async () => {
+    window.fetch = jest.fn().mockImplementation(() => ({
+    status: 200,
+    json: () => Promise.resolve({"favorites": [], results: [], "planets": {}, "vehicles": {}})
+    }))
+    const expected = {"favorites": [2], "people": [], "planets": {}, "vehicles": {}}
+
+    await wrapper.instance().buttonHasBeenPressed(null, 'people');
+    expect(wrapper.state().starWarsDirectory).toEqual(expected)
+  })
 });

@@ -94,12 +94,27 @@ describe('API', () => {
 
   it('should return an object with the proper values', async () => {
     const parameter = [{name: 'name', population: 'population', climate: 'climate', terrain: 'terrain', residents: []}];
+
     window.fetch = jest.fn().mockImplementation(() => ({
       status: 200,
       json: () => Promise.resolve({results: parameter})
     }))
+
     const functionCall = await API.fetchPlanetData(parameter)
     const expected = [{"climate": "climate", "name": "name", "population": "population", "residents": [], "terrain": "terrain"}]
+    expect(functionCall).toEqual(expected)
+  })
+  it('should return an object with the proper values', async () => {
+    const parameter = [{name: 'name', population: 'population', climate: 'climate', terrain: 'terrain', residents: []}];
+
+    window.fetch = jest.fn().mockImplementation(() => ({
+      status: 200,
+      json: () => Promise.resolve({results: parameter})
+    }))
+
+    const functionCall = await API.fetchPeopleData(parameter)
+    const expected = [{"properName": "name", "results": [{"climate": "climate", "name": "name", "population": "population", "residents": [], "terrain": "terrain"}], "species": {"results": [{"climate": "climate", "name": "name", "population": "population", "residents": [], "terrain": "terrain"}]}}]
+
     expect(functionCall).toEqual(expected)
   })
 })
