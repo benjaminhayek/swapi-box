@@ -78,7 +78,7 @@ describe('App', () => {
     status: 200,
     json: () => Promise.resolve({"favorites": [], results: [], "planets": {}, "vehicles": {}})
     }))
-    const expected = {"favorites": [2], "people": [], "planets": {}, "vehicles": {}}
+    const expected = {"favorites": [], "people": [], "planets": {}, "vehicles": {}}
 
     await wrapper.instance().buttonHasBeenPressed(null, 'people');
     expect(wrapper.state().starWarsDirectory).toEqual(expected)
@@ -88,7 +88,7 @@ describe('App', () => {
     status: 200,
     json: () => Promise.resolve({"favorites": [2], results: [{residents: [2]}], "planets": {}, "vehicles": {}})
     }))
-    const expected = {"favorites": [], "planets": [{"name": undefined, "properties": ["Terrain: undefined", "Population: undefined", "Climate: undefined", "Residents: "]}], "results": [], "vehicles": {}}
+    const expected = {"favorites": [], "people": {}, "planets": [{"name": undefined, "properties": ["Terrain: undefined", "Population: undefined", "Climate: undefined", "Residents: "]}], "vehicles": {}}
 
     await wrapper.instance().buttonHasBeenPressed(null, 'planets');
     expect(wrapper.state().starWarsDirectory).toEqual(expected)
@@ -98,7 +98,7 @@ describe('App', () => {
     status: 200,
     json: () => Promise.resolve({"favorites": [2], results: [{residents: [2]}], "planets": {}, "vehicles": {}})
     }))
-    const expected = {"favorites": [2], "planets": {}, "results": [{"residents": [2]}], "vehicles": [{"name": undefined, "properties": ["Model: undefined", "Class: undefined", "# Of Passengers: undefined"]}]}
+    const expected = {"favorites": [], "people": {}, "planets": {}, "vehicles": [{"name": undefined, "properties": ["Model: undefined", "Class: undefined", "# Of Passengers: undefined"]}]}
 
 
     await wrapper.instance().buttonHasBeenPressed(null, 'vehicles');

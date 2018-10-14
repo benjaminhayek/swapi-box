@@ -5,7 +5,7 @@ import { createSerializer } from 'enzyme-to-json';
 expect.addSnapshotSerializer(createSerializer({mode: 'deep'}));
 
 const localStorageMock = {
-  getItem: jest.fn(),
+  getItem: (key) => store[key],
   setItem: jest.fn(),
   clear: jest.fn()
 };

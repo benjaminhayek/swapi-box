@@ -93,6 +93,7 @@ describe('API', () => {
   })
 
   it('should return an object with the proper values', async () => {
+    let store = '[{name: Organa}]'
     const parameter = [{name: 'name', population: 'population', climate: 'climate', terrain: 'terrain', residents: []}];
 
     window.fetch = jest.fn().mockImplementation(() => ({

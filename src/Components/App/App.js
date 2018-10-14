@@ -46,7 +46,7 @@ class App extends Component {
 
   buttonHasBeenPressed = async (url, categoryName) => {
     let newCards;
-    if(API.checkLocalStorage(categoryName).length > 0){
+    if(API.checkLocalStorage(categoryName)){
       newCards = API.checkLocalStorage(categoryName)
     } else if(categoryName === 'favorite'){
       return this.setState({stateOfButtons: this.changeButtonValues(categoryName)})
