@@ -28,14 +28,20 @@ class App extends Component {
   }
 
   async componentDidMount() {
+    let movieScrollData;
     const starWarsDirectory = await API.searchStarWarsAPI();
-    const movieScroll = await API.searchStarWarsAPI(starWarsDirectory.films)
-
+    debugger;
+    if(API.checkLocalStorage('movieScroll')) {
+      movieScrollData = API.checkLocalStorage('movieScroll')
+    } else {
+      movieScrollData = await API.searchStarWarsAPI(starWarsDirectory.films);
+      API.putDataIntoStorage('movieScroll', movieScrollData.results)
+    }
     this.setState({
         starWarsDirectory,
-        movieScroll: movieScroll.results, 
+        movieScroll: movieScrollData, 
         isLoaded: true
-      })
+    })
   }
 
   buttonHasBeenPressed = async (url, categoryName) => {
@@ -51,6 +57,7 @@ class App extends Component {
     }else if (categoryName === 'vehicles') {
       newCards = await API.fetchVehicleData(url);   
     }
+    API.putDataIntoStorage(categoryName, newCards)
     this.setState({
       stateOfButtons: this.changeButtonValues(categoryName),
       starWarsDirectory: {

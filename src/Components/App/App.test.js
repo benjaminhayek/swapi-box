@@ -4,8 +4,6 @@ import App from './App';
 import { shallow , mount } from 'enzyme';
 import * as API from '../API/API'
 
-
-
 describe('App', () => {
   let wrapper;
 
