@@ -1,10 +1,14 @@
 export const searchStarWarsAPI = async (url) => { 
   const response = await fetch(url || "https://swapi.co/api/")
-
-  if(response.status >= 400) {
-    throw new Error('fetch failed')
-  } else {
-    return await response.json();
+  try {
+    if(response.status >= 400) {
+      throw new Error('fetch recieved an invalid response')
+    } else {
+      return await response.json();
+    }
+  }
+  catch {
+    throw Error('Problem with fetch')
   }
 }
 
@@ -90,7 +94,7 @@ export const putDataIntoStorage = (key, data) => {
 }
 
 export const checkLocalStorage = key => {
-  if(localStorage.getItem(key)){
+  if(localStorage.getItem(key)) {
     const retrievedJSON = localStorage.getItem(key);
     const newData = JSON.parse(retrievedJSON)
     return newData

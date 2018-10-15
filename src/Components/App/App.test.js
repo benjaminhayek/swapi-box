@@ -62,7 +62,6 @@ describe('App', () => {
   describe('componentDidMount', () => {
     it('should set state on component did mount', async () => {
       const expected = {"favorites": [], "people": {}, "planets": {}, "vehicles": {}}
-      let store = JSON.stringify({movieScroll: []})
       window.fetch = jest.fn().mockImplementation(() => ({
       status: 200,
       json: () => Promise.resolve({"favorites": [], "people": {}, "planets": {}, "vehicles": {}})

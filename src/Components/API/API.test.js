@@ -23,7 +23,7 @@ describe('API', () => {
     })
 
   it('throw an error if status is not ok', async () => {
-    const expected = Error('fetch failed')
+    const expected = Error('Problem with fetch')
       window.fetch = jest.fn().mockImplementation(() => ({
       status: 500,
         json: () => Promise.resolve({results: []})
