@@ -8,7 +8,7 @@ describe('Card', () => {
   beforeEach(() => {
     wrapper = shallow(<Card 
                 name={'meow'}
-                properties={{planet: 'meow', population: 'meow', species: 'meow'}}/>);
+                properties={['meow','meow','meow', 'meow']}/>);
   });
 
   it('matches the snapshot', () => {

@@ -7,15 +7,26 @@ exports[`Card matches the snapshot 1`] = `
   <h3>
     meow
   </h3>
-  <h4>
+  <div
+    key="meow0"
+  >
     meow
-  </h4>
-  <h4>
+  </div>
+  <div
+    key="meow1"
+  >
     meow
-  </h4>
-  <h4>
+  </div>
+  <div
+    key="meow2"
+  >
     meow
-  </h4>
+  </div>
+  <div
+    key="meow3"
+  >
+    meow
+  </div>
   <div>
     <button>
       Favs

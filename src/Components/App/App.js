@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Button from '../Button/Button';
-import Card from  '../Card/Card';
 import Scroll from '../Scroll/Scroll';
 import * as API from '../API/API';
 import ErrorHandler from '../ErrorHandler/ErrorHandler';
@@ -29,45 +28,56 @@ class App extends Component {
   }
 
   async componentDidMount() {
+    let movieScrollData;
     const starWarsDirectory = await API.searchStarWarsAPI();
-    const movieScroll = await API.searchStarWarsAPI(starWarsDirectory.films)
-
+    if(API.checkLocalStorage('movieScroll')) {
+      movieScrollData = API.checkLocalStorage('movieScroll')
+    } else {
+      const resolvedData = await API.searchStarWarsAPI(starWarsDirectory.films);
+      movieScrollData = resolvedData.results
+     API.putDataIntoStorage('movieScroll', movieScrollData)
+    }
     this.setState({
         starWarsDirectory,
-        movieScroll: movieScroll.results, 
+        movieScroll: movieScrollData, 
         isLoaded: true
-      })
+    })
   }
 
   buttonHasBeenPressed = async (url, categoryName) => {
-    if(categoryName === 'favorite'){
+    let newCards;
+    if(API.checkLocalStorage(categoryName)){
+      newCards = API.checkLocalStorage(categoryName)
+    } else if(categoryName === 'favorite'){
       return this.setState({stateOfButtons: this.changeButtonValues(categoryName)})
-    } else {
-      const category = await API.makePeopleCard(url)
-      const cleanedData = API.cleanPeopleData(category)
-      this.setState({
-        stateOfButtons: this.changeButtonValues(categoryName),
-        starWarsDirectory: {
-          ...this.state.starWarsDirectory,
-          [categoryName]: cleanedData
-        }
-      })
+    }else if (categoryName === 'people') {
+      const category = await API.fetchPeopleData(url)
+      newCards = API.makePeopleCard(category)
+    }else if (categoryName === 'planets') {
+      const fetchedPlanet = await API.fetchPlanetData(url);
+      newCards = await API.makePlanetCard(fetchedPlanet);
+    }else if (categoryName === 'vehicles') {
+      newCards = await API.fetchVehicleData(url);   
     }
+    API.putDataIntoStorage(categoryName, newCards)
+    this.setState({
+      stateOfButtons: this.changeButtonValues(categoryName),
+      starWarsDirectory: {
+        ...this.state.starWarsDirectory,
+        [categoryName]: newCards,
+      }
+    }) 
   }
 
   changeButtonValues = (buttonName) => {
     let newButtonState = {}
-    const { stateOfButtons } = this.state
     Object.keys(this.state.stateOfButtons).forEach(button => {
-      const newValue = stateOfButtons[button]
-
       if(button === buttonName) {
         newButtonState[button] = true
       } else {
         newButtonState[button] = false
       }
-    })
-    
+    }) 
     return newButtonState
   }
 
@@ -92,6 +102,7 @@ class App extends Component {
                 <Scroll 
                   movieScroll={ movieScroll }
                   starWarsDirectory={starWarsDirectory}
+                  stateOfButtons={ stateOfButtons }
                 />
               </header>
           </div>
