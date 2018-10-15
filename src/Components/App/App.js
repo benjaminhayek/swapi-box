@@ -29,16 +29,16 @@ class App extends Component {
 
   async componentDidMount() {
     let movieScrollData;
-    const starWarsDirectory = await API.searchStarWarsAPI();
+    const URLs = await API.searchStarWarsAPI();
     if(API.checkLocalStorage('movieScroll')) {
       movieScrollData = API.checkLocalStorage('movieScroll')
     } else {
-      const resolvedData = await API.searchStarWarsAPI(starWarsDirectory.films);
+      const resolvedData = await API.searchStarWarsAPI(URLs.films);
       movieScrollData = resolvedData.results
      API.putDataIntoStorage('movieScroll', movieScrollData)
     }
     this.setState({
-        starWarsDirectory,
+        starWarsDirectory: {...this.state.starWarsDirectory, ...URLs},
         movieScroll: movieScrollData, 
         isLoaded: true
     })
@@ -86,12 +86,11 @@ class App extends Component {
     const selectedCard = this.state.starWarsDirectory[category].filter(item => {
       return item.id === id
     })
-    debugger;
 
     this.setState({
       starWarsDirectory:{
-        favorites: [...this.state.starWarsDirectory[category],
-                selectedCard]
+        ...this.state.starWarsDirectory,
+        favorites: [...this.state.starWarsDirectory.favorites, ...selectedCard]
       }
     })
   }
@@ -129,3 +128,4 @@ class App extends Component {
 }
 
 export default App;
+
