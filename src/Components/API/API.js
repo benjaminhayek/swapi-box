@@ -45,9 +45,10 @@ export const fetchPlanetData = async url => {
 
 export const fetchVehicleData = async url => {
   const vehicles = await searchStarWarsAPI(url);
-  const vehicleData = vehicles.results.map(vehicle => {
+  const vehicleData = vehicles.results.map((vehicle, i) => {
     return {
       name: vehicle.name,
+      id: i + 'vehicles',
       properties: [
         `Model: ${vehicle.model}`,
         `Class: ${vehicle.vehicle_class}`,
@@ -59,9 +60,10 @@ export const fetchVehicleData = async url => {
 }
 
 export const makePlanetCard = category => {
-  const planetCard = category.map(item => {
+  const planetCard = category.map((item, i) => {
     return {
       name: item.name,
+      id: i + 'planets',
       properties: [
         `Terrain: ${item.terrain}`,
         `Population: ${item.population}`,
@@ -76,9 +78,11 @@ export const makePlanetCard = category => {
 }
 
 export const makePeopleCard = category => {
-  const personCard = category.map(item => {
+  const personCard = category.map((item, i) => {
+    console.log(i + category)
     return {
       name: item.properName,
+      id: i + 'people',
       properties: [
         `Planet: ${item.name}`,
         `Population: ${item.population}`,

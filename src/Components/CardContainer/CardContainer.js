@@ -2,7 +2,7 @@ import React from 'react';
 import './CardContainer.css';
 import Card from '../Card/Card';
 
-const CardContainer = ({starWarsDirectory, stateOfButtons}) => {
+const CardContainer = ({starWarsDirectory, stateOfButtons, favoriteACard}) => {
   const cardCategory = Object.keys(stateOfButtons).filter(category => {
     return stateOfButtons[category]
   }).toString();
@@ -13,6 +13,8 @@ const CardContainer = ({starWarsDirectory, stateOfButtons}) => {
                 key={i + [cardCategory]}
                 name={card.name}
                 properties={card.properties}
+                favoriteACard={favoriteACard}
+                id={i + [cardCategory]}
                 /> 
               })
             }

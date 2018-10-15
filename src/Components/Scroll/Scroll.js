@@ -4,7 +4,7 @@ import Crawl from 'react-star-wars-crawl';
 import 'react-star-wars-crawl/lib/index.css';
 import CardContainer from '../CardContainer/CardContainer';
 
-const Scroll = ({ movieScroll, starWarsDirectory, stateOfButtons }) => {
+const Scroll = ({ movieScroll, starWarsDirectory, stateOfButtons, favoriteACard }) => {
   const getRandomIndice = Math.floor(Math.random() * Math.floor(6));
   const randomMovie = movieScroll[getRandomIndice];
 
@@ -13,6 +13,7 @@ const Scroll = ({ movieScroll, starWarsDirectory, stateOfButtons }) => {
       <CardContainer 
         starWarsDirectory={starWarsDirectory}
         stateOfButtons={stateOfButtons}
+        favoriteACard={favoriteACard}
       />
       <Crawl>
         <p>{randomMovie.opening_crawl}</p>

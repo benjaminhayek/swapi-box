@@ -81,6 +81,21 @@ class App extends Component {
     return newButtonState
   }
 
+  favoriteACard = (id) => {
+    const category = [...id].splice(1, 10).join('');
+    const selectedCard = this.state.starWarsDirectory[category].filter(item => {
+      return item.id === id
+    })
+    debugger;
+
+    this.setState({
+      starWarsDirectory:{
+        favorites: [...this.state.starWarsDirectory[category],
+                selectedCard]
+      }
+    })
+  }
+
   render() {
     const { movieScroll, isLoaded, starWarsDirectory, stateOfButtons} = this.state
     if(!isLoaded){
@@ -100,9 +115,10 @@ class App extends Component {
               <header>
                <h1 className="title">SWAPI BOX</h1>
                 <Scroll 
-                  movieScroll={ movieScroll }
+                  movieScroll={movieScroll}
                   starWarsDirectory={starWarsDirectory}
-                  stateOfButtons={ stateOfButtons }
+                  stateOfButtons={stateOfButtons}
+                  favoriteACard={this.favoriteACard}
                 />
               </header>
           </div>

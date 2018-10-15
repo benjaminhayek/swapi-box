@@ -10,7 +10,9 @@ const Card = (props) => {
       <h3>{props.name}</h3>
       {cardData}
       <div>
-        <button>Favs</button>
+        <button onClick={() => props.favoriteACard(props.id)}>
+          Favs
+        </button>
       </div>
     </div>
   )
