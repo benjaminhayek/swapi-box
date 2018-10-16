@@ -19,7 +19,7 @@ class App extends Component {
       movieScroll: [],
       isLoaded: false,
       stateOfButtons: {
-        favorite: false,
+        favorites: false,
         vehicles: false,
         planets: false,
         people: false
@@ -83,17 +83,18 @@ class App extends Component {
 
   favoriteACard = (id) => {
     let newCards;
+    const { favorites } = this.state.starWarsDirectory
     const category = [...id].splice(1, 10).join('');
-    const checkingFavorites = this.state.starWarsDirectory.favorites.filter(card => {
+    const checkingFavorites = favorites.filter(card => {
       return card.id !== id
     });
     const selectedCard = this.state.starWarsDirectory[category].filter(item => {
       return item.id === id
     })
-    if(this.state.starWarsDirectory.favorites.includes(...selectedCard)) {
+    if(favorites.length !== checkingFavorites.length) {
       newCards = checkingFavorites
     } else {
-      newCards = [...this.state.starWarsDirectory.favorites, ...selectedCard];
+      newCards = [...favorites, ...selectedCard];
     } 
     API.putDataIntoStorage('favorites', newCards)
     this.setState({

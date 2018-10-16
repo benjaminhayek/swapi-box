@@ -9,12 +9,13 @@ const CardContainer = ({starWarsDirectory, stateOfButtons, favoriteACard}) => {
   let cards;
   if(typeof starWarsDirectory[cardCategory] === 'object') {
     cards = starWarsDirectory[cardCategory].map((card, i) => {
+      console.log(card)
       return <Card
                 key={i + [cardCategory]}
                 name={card.name}
                 properties={card.properties}
                 favoriteACard={favoriteACard}
-                id={i + [cardCategory]}
+                id={card.id}
                 /> 
               })
             }
