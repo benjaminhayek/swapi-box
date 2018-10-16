@@ -82,7 +82,6 @@ class App extends Component {
   }
 
   favoriteACard = (id) => {
-    debugger;
     let newCards;
     let upDateToggle;
     const category = [...id].splice(1, 10).join('');

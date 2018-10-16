@@ -81,7 +81,6 @@ export const makePlanetCard = category => {
 
 export const makePeopleCard = category => {
   const personCard = category.map((item, i) => {
-    console.log(i + category)
     return {
       name: item.properName,
       id: i + 'people',
