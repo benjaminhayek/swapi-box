@@ -82,25 +82,36 @@ class App extends Component {
   }
 
   favoriteACard = (id) => {
+    debugger;
     let newCards;
-    const { favorites } = this.state.starWarsDirectory
+    let upDateToggle;
     const category = [...id].splice(1, 10).join('');
-    const checkingFavorites = favorites.filter(card => {
+    const state = this.state.starWarsDirectory
+    const checkingFavorites = state.favorites.filter(card => {
       return card.id !== id
     });
+    const newCategory = state[category].filter(card => {
+      return card.id !== id
+    })
     const selectedCard = this.state.starWarsDirectory[category].filter(item => {
       return item.id === id
     })
-    if(favorites.length !== checkingFavorites.length) {
+
+    selectedCard[0].favorited = !selectedCard[0].favorited
+    if(state.favorites.length !== checkingFavorites.length) {
       newCards = checkingFavorites
     } else {
-      newCards = [...favorites, ...selectedCard];
-    } 
+      newCards = [...selectedCard, ...state.favorites];
+    }
+    upDateToggle = [...selectedCard, ...newCategory, ] 
     API.putDataIntoStorage('favorites', newCards)
+    API.putDataIntoStorage([category], upDateToggle)
+
     this.setState({
-      starWarsDirectory:{
-        ...this.state.starWarsDirectory,
-        favorites: newCards
+      starWarsDirectory: {
+      ...this.state.starWarsDirectory,
+      [category]: upDateToggle,
+      favorites: newCards
       }
     })
   }
