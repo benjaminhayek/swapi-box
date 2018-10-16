@@ -23,7 +23,7 @@ describe('App', () => {
 
   it('should have a default state', () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.state()).toEqual({"isLoaded": false, "movieScroll": [], "starWarsDirectory": {"favorites": [], "people": {}, "planets": {}, "vehicles": {}}, "stateOfButtons": {"favorite": false, "people": false, "planets": false, "vehicles": false}});
+    expect(wrapper.state()).toEqual({"isLoaded": false, "movieScroll": [], "starWarsDirectory": {"favorites": [], "people": {}, "planets": {}, "vehicles": {}}, "stateOfButtons": {"favorites": false, "people": false, "planets": false, "vehicles": false}});
   });
 
   it('should set new button state to true', () => {
@@ -33,7 +33,7 @@ describe('App', () => {
   });
 
   it('should set new state on buttonHasPressed', async () => {
-    const expected = {"favorite": false, "people": false, "planets": false, "vehicles": false}
+    const expected = {"favorites": false, "people": false, "planets": false, "vehicles": false}
     wrapper.instance().buttonHasBeenPressed()
     expect(wrapper.state().stateOfButtons).toEqual(expected)
   })
@@ -50,7 +50,7 @@ describe('App', () => {
   })
 
   it('should set state of stateOfButtons', async () => {
-    const expected = {"favorite": false, "people": false, "planets": false, "vehicles": false}
+    const expected = {"favorites": false, "people": false, "planets": false, "vehicles": false}
     window.fetch = jest.fn().mockImplementation(() => ({
       status: 200,
       json: () => Promise.resolve({"favorites": [2], "people": {}, "planets": {}, "vehicles": {}})
@@ -88,7 +88,7 @@ describe('App', () => {
     status: 200,
     json: () => Promise.resolve({"favorites": [2], results: [{residents: [2]}], "planets": {}, "vehicles": {}})
     }))
-    const expected = {"favorites": [], "people": {}, "planets": [{"name": undefined, "properties": ["Terrain: undefined", "Population: undefined", "Climate: undefined", "Residents: "]}], "vehicles": {}}
+    const expected = {"favorites": [], "people": {}, "planets": [{"favorited": false, "id": "0planets", "name": undefined, "properties": ["Terrain: undefined", "Population: undefined", "Climate: undefined", "Residents: "]}], "vehicles": {}}
 
     await wrapper.instance().buttonHasBeenPressed(null, 'planets');
     expect(wrapper.state().starWarsDirectory).toEqual(expected)
@@ -98,7 +98,7 @@ describe('App', () => {
     status: 200,
     json: () => Promise.resolve({"favorites": [2], results: [{residents: [2]}], "planets": {}, "vehicles": {}})
     }))
-    const expected = {"favorites": [], "people": {}, "planets": {}, "vehicles": [{"name": undefined, "properties": ["Model: undefined", "Class: undefined", "# Of Passengers: undefined"]}]}
+    const expected = {"favorites": [], "people": {}, "planets": {}, "vehicles": [{"favorited": false, "id": "0vehicles", "name": undefined, "properties": ["Model: undefined", "Class: undefined", "# Of Passengers: undefined"]}]}
 
 
     await wrapper.instance().buttonHasBeenPressed(null, 'vehicles');
