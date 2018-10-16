@@ -81,20 +81,25 @@ class App extends Component {
     return newButtonState
   }
 
+  filterFavorties = (cardArray, id, selected = false) => {
+    if(selected === true) {
+      return cardArray.filter(card => {
+        return card.id === id
+      })
+    } else {
+      return cardArray.filter(card => {
+        return card.id !== id
+      })
+    }
+  }
+
   favoriteACard = (id) => {
     let newCards;
-    let upDateToggle;
     const category = [...id].splice(1, 10).join('');
     const state = this.state.starWarsDirectory
-    const checkingFavorites = state.favorites.filter(card => {
-      return card.id !== id
-    });
-    const newCategory = state[category].filter(card => {
-      return card.id !== id
-    })
-    const selectedCard = this.state.starWarsDirectory[category].filter(item => {
-      return item.id === id
-    })
+    const checkingFavorites = this.filterFavorties(state.favorites, id)
+    const newCategory = this.filterFavorties(state[category], id)
+    const selectedCard = this.filterFavorties(state[category], id, true)
 
     selectedCard[0].favorited = !selectedCard[0].favorited
     if(state.favorites.length !== checkingFavorites.length) {
@@ -102,7 +107,7 @@ class App extends Component {
     } else {
       newCards = [...selectedCard, ...state.favorites];
     }
-    upDateToggle = [...selectedCard, ...newCategory, ] 
+    const upDateToggle = [...selectedCard, ...newCategory] 
     API.putDataIntoStorage('favorites', newCards)
     API.putDataIntoStorage([category], upDateToggle)
 
