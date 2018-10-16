@@ -49,7 +49,7 @@ class App extends Component {
     if(API.checkLocalStorage(categoryName)){
       newCards = API.checkLocalStorage(categoryName)
     } else if(categoryName === 'favorite'){
-      return this.setState({stateOfButtons: this.changeButtonValues(categoryName)})
+      newCards = this.state.starWarsDirectory.favorites
     }else if (categoryName === 'people') {
       const category = await API.fetchPeopleData(url)
       newCards = API.makePeopleCard(category)
@@ -86,11 +86,13 @@ class App extends Component {
     const selectedCard = this.state.starWarsDirectory[category].filter(item => {
       return item.id === id
     })
-
+    const newFavorites = [...this.state.starWarsDirectory.favorites, ...selectedCard];
+    
+    API.putDataIntoStorage('favorites', newFavorites)
     this.setState({
       starWarsDirectory:{
         ...this.state.starWarsDirectory,
-        favorites: [...this.state.starWarsDirectory.favorites, ...selectedCard]
+        favorites: newFavorites
       }
     })
   }

@@ -49,6 +49,7 @@ export const fetchVehicleData = async url => {
     return {
       name: vehicle.name,
       id: i + 'vehicles',
+      favorited: false,
       properties: [
         `Model: ${vehicle.model}`,
         `Class: ${vehicle.vehicle_class}`,
@@ -64,6 +65,7 @@ export const makePlanetCard = category => {
     return {
       name: item.name,
       id: i + 'planets',
+      favorited: false,
       properties: [
         `Terrain: ${item.terrain}`,
         `Population: ${item.population}`,
@@ -83,6 +85,7 @@ export const makePeopleCard = category => {
     return {
       name: item.properName,
       id: i + 'people',
+      favorited: false,
       properties: [
         `Planet: ${item.name}`,
         `Population: ${item.population}`,
