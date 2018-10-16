@@ -48,7 +48,7 @@ class App extends Component {
     let newCards;
     if(API.checkLocalStorage(categoryName)){
       newCards = API.checkLocalStorage(categoryName)
-    } else if(categoryName === 'favorite'){
+    } else if(categoryName === 'favorites'){
       newCards = this.state.starWarsDirectory.favorites
     }else if (categoryName === 'people') {
       const category = await API.fetchPeopleData(url)
@@ -82,17 +82,24 @@ class App extends Component {
   }
 
   favoriteACard = (id) => {
+    let newCards;
     const category = [...id].splice(1, 10).join('');
+    const checkingFavorites = this.state.starWarsDirectory.favorites.filter(card => {
+      return card.id !== id
+    });
     const selectedCard = this.state.starWarsDirectory[category].filter(item => {
       return item.id === id
     })
-    const newFavorites = [...this.state.starWarsDirectory.favorites, ...selectedCard];
-    
-    API.putDataIntoStorage('favorites', newFavorites)
+    if(this.state.starWarsDirectory.favorites.includes(...selectedCard)) {
+      newCards = checkingFavorites
+    } else {
+      newCards = [...this.state.starWarsDirectory.favorites, ...selectedCard];
+    } 
+    API.putDataIntoStorage('favorites', newCards)
     this.setState({
       starWarsDirectory:{
         ...this.state.starWarsDirectory,
-        favorites: newFavorites
+        favorites: newCards
       }
     })
   }
