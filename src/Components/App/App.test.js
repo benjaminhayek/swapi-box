@@ -66,7 +66,7 @@ describe('App', () => {
       expect(renderedComponent.state().starWarsDirectory).toEqual(expected)
     })
   })
-  it.skip('buttonHasBeenPressed should send back correct data based on parameters', async () => {
+  it('buttonHasBeenPressed should send back correct data based on parameters', async () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
     status: 200,
     json: () => Promise.resolve({"favorites": [], results: [], "planets": {}, "vehicles": {}})
@@ -76,22 +76,22 @@ describe('App', () => {
     await wrapper.instance().buttonHasBeenPressed(null, 'people');
     expect(wrapper.state().starWarsDirectory).toEqual(expected)
   })
-  it.skip('buttonHasBeenPressed should send back correct data based on parameters', async () => {
+  it('buttonHasBeenPressed should send back correct data based on parameters', async () => {
     window.fetch = jest.fn().mockImplementation(() => ({
     status: 200,
     json: () => Promise.resolve({"favorites": [2], results: [{residents: [2]}], "planets": {}, "vehicles": {}})
     }))
-    const expected = {"favorites": [], "people": {}, "planets": [{"favorited": false, "id": "0planets", "name": undefined, "properties": ["Terrain: undefined", "Population: undefined", "Climate: undefined", "Residents: "]}], "vehicles": {}}
+    const expected = {"favorites": [], "people": {}, "planets": [{"favorited": false, "id": "0planets", "name": undefined, "properties": ["Terrain: undefined", "Population: undefined", "Climate: undefined", "Residents: "]}], "results": [], "vehicles": {}}
 
     await wrapper.instance().buttonHasBeenPressed(null, 'planets');
     expect(wrapper.state().starWarsDirectory).toEqual(expected)
   })
-  it.skip('buttonHasBeenPressed should send back correct data based on parameters', async () => {
+  it('buttonHasBeenPressed should send back correct data based on parameters', async () => {
     window.fetch = jest.fn().mockImplementation(() => ({
     status: 200,
     json: () => Promise.resolve({"favorites": [2], results: [{residents: [2]}], "planets": {}, "vehicles": {}})
     }))
-    const expected = {"favorites": [], "people": {}, "planets": {}, "vehicles": [{"favorited": false, "id": "0vehicles", "name": undefined, "properties": ["Model: undefined", "Class: undefined", "# Of Passengers: undefined"]}]}
+    const expected = {"favorites": [2], "people": {}, "planets": {}, "results": [{"residents": [2]}], "vehicles": [{"favorited": false, "id": "0vehicles", "name": undefined, "properties": ["Model: undefined", "Class: undefined", "# Of Passengers: undefined"]}]}
 
 
     await wrapper.instance().buttonHasBeenPressed(null, 'vehicles');

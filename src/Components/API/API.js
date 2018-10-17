@@ -100,8 +100,8 @@ export const putDataIntoStorage = (key, data) => {
 }
 
 export const checkLocalStorage = key => {
-  if(localStorage.getItem(key)) {
-    const retrievedJSON = localStorage.getItem(key);
+  const retrievedJSON = localStorage.getItem(key)
+  if(retrievedJSON === undefined) {
     const newData = JSON.parse(retrievedJSON)
     return newData
   } else {
