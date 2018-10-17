@@ -2,10 +2,15 @@ import * as API from '../API/API';
 
 describe('API', () => {
   it('should be called with the correct params', async () => {
-    window.fetch = jest.fn().mockImplementation(() => ({
-      status: 200,
-      json: () => Promise.resolve({results: []})
-    }))
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve({
+          "favorites": [], 
+          "people": {}, 
+          "planets": {}, 
+          "vehicles": {}
+        })
+      }))
     const expected = "https://swapi.co/api/"
 
     await API.searchStarWarsAPI();
@@ -70,14 +75,15 @@ describe('API', () => {
   it('should return an object with the proper values', () => {
     const parameter = [{properName: 'name', name: 'name', population: 'population', species: {name: 'name'}}];
     const functionCall = API.makePeopleCard(parameter)
-    const expected = [{name: 'name', properties: ['Planet: name', 'Population: population', 'Species: name']}]
+    const expected = [{"favorited": false, "id": "0people", "name": "name", "properties": ["Planet: name", "Population: population", "Species: name"]}]
+
     expect(functionCall).toEqual(expected)
   })
 
   it('should return an object with the proper values', () => {
     const parameter = [{name: 'name', terrain: 'terrain', population: 'population', climate: 'climate', residents: [{name: 'array'}]}];
     const functionCall = API.makePlanetCard(parameter)
-    const expected = [{"name": "name", "properties": ["Terrain: terrain", "Population: population", "Climate: climate", "Residents: array"]}]
+    const expected = [{"favorited": false, "id": "0planets", "name": "name", "properties": ["Terrain: terrain", "Population: population", "Climate: climate", "Residents: array"]}]
     expect(functionCall).toEqual(expected)
   })
 
@@ -88,7 +94,7 @@ describe('API', () => {
       json: () => Promise.resolve({results: parameter})
     }))
     const functionCall = await API.fetchVehicleData(parameter)
-    const expected = [{"name": "name", "properties": ["Model: model", "Class: undefined", "# Of Passengers: passengers"]}]
+    const expected = [{"favorited": false, "id": "0vehicles", "name": "name", "properties": ["Model: model", "Class: undefined", "# Of Passengers: passengers"]}]
     expect(functionCall).toEqual(expected)
   })
 

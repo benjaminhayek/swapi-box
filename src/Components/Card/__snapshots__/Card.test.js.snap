@@ -28,7 +28,10 @@ exports[`Card matches the snapshot 1`] = `
     meow
   </div>
   <div>
-    <button>
+    <button
+      className="selected"
+      onClick={[Function]}
+    >
       Favs
     </button>
   </div>

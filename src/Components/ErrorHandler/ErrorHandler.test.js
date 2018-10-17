@@ -13,7 +13,6 @@ describe('ErrorHandler', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-
   it('should set state if theres an error', () => {
     const expected = true 
     wrapper.instance().componentDidCatch()

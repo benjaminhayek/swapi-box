@@ -1,3 +1,7 @@
+button:focus {
+  outline:0;
+}
+
 .button-container {
   background: black;
   display: grid;
@@ -19,10 +23,17 @@
   justify-self: center;
   display: inherit;
 }
+
 .fab {
   font-size: 100px;
+  transition: all .25s ease-in-out;
 }
 
-.selected {
-  background: magenta;
+.fab:hover {
+  font-size: 120px;
+}
+
+.selected .fab {
+  font-size: 120px;
+  color: #FEDA4B;
 }

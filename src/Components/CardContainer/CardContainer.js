@@ -2,11 +2,11 @@ import React from 'react';
 import './CardContainer.css';
 import Card from '../Card/Card';
 
-const CardContainer = ({starWarsDirectory, stateOfButtons, favoriteACard}) => {
+const CardContainer = ({starWarsDirectory, stateOfButtons, favoriteACard, favorited}) => {
   const cardCategory = Object.keys(stateOfButtons).filter(category => {
     return stateOfButtons[category]
   }).toString();
-  let cards;
+  let cards = [];
   if(typeof starWarsDirectory[cardCategory] === 'object') {
     cards = starWarsDirectory[cardCategory].map((card, i) => {
       return <Card
@@ -14,13 +14,15 @@ const CardContainer = ({starWarsDirectory, stateOfButtons, favoriteACard}) => {
                 name={card.name}
                 properties={card.properties}
                 favoriteACard={favoriteACard}
-                id={i + [cardCategory]}
+                id={card.id}
+                favorited={card.favorited}
                 /> 
               })
             }
+    console.log(cards)
     return (
-      <section className="card-container">
-        {cards}
+      <section className={`${cards.length <=0 ? 'no-favs-container' : ''}card-container`}>
+        {cards.length <= 0? <div class='no-favs'>NoFavs</div>: cards}
       </section>
     );
 }

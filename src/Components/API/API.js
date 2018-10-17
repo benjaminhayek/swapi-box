@@ -81,7 +81,6 @@ export const makePlanetCard = category => {
 
 export const makePeopleCard = category => {
   const personCard = category.map((item, i) => {
-    console.log(i + category)
     return {
       name: item.properName,
       id: i + 'people',
@@ -101,8 +100,8 @@ export const putDataIntoStorage = (key, data) => {
 }
 
 export const checkLocalStorage = key => {
-  if(localStorage.getItem(key)) {
-    const retrievedJSON = localStorage.getItem(key);
+  const retrievedJSON = localStorage.getItem(key)
+  if(typeof retrievedJSON === 'string') {
     const newData = JSON.parse(retrievedJSON)
     return newData
   } else {

@@ -10,3 +10,7 @@
   justify-items: left;
   padding-left: 7px;
 }
+
+.favorited {
+  background-color: #FEDA4B;
+}

@@ -4,6 +4,7 @@ import Button from '../Button/Button';
 import Scroll from '../Scroll/Scroll';
 import * as API from '../API/API';
 import ErrorHandler from '../ErrorHandler/ErrorHandler';
+import { Route, NavLink } from 'react-router-dom';
 
 
 class App extends Component {
@@ -19,7 +20,7 @@ class App extends Component {
       movieScroll: [],
       isLoaded: false,
       stateOfButtons: {
-        favorite: false,
+        favorites: false,
         vehicles: false,
         planets: false,
         people: false
@@ -84,24 +85,41 @@ class App extends Component {
   favoriteACard = (id) => {
     let newCards;
     const category = [...id].splice(1, 10).join('');
-    const checkingFavorites = this.state.starWarsDirectory.favorites.filter(card => {
-      return card.id !== id
-    });
-    const selectedCard = this.state.starWarsDirectory[category].filter(item => {
-      return item.id === id
-    })
-    if(this.state.starWarsDirectory.favorites.includes(...selectedCard)) {
+    const state = this.state.starWarsDirectory
+    const checkingFavorites = this.filterFavorties(state.favorites, id)
+    const newCategory = this.filterFavorties(state[category], id)
+    const selectedCard = this.filterFavorties(state[category], id, true)
+
+    if(state.favorites.length !== checkingFavorites.length) {
       newCards = checkingFavorites
     } else {
-      newCards = [...this.state.starWarsDirectory.favorites, ...selectedCard];
-    } 
+      newCards = [...selectedCard, ...state.favorites];
+    }
+    const upDateToggle = [...selectedCard, ...newCategory] 
     API.putDataIntoStorage('favorites', newCards)
+    API.putDataIntoStorage([category], upDateToggle)
+
     this.setState({
-      starWarsDirectory:{
-        ...this.state.starWarsDirectory,
-        favorites: newCards
+      starWarsDirectory: {
+      ...this.state.starWarsDirectory,
+      [category]: upDateToggle,
+      favorites: newCards
       }
     })
+  }
+
+  filterFavorties = (cardArray, id, selected = false) => {
+    if(selected === true) {
+      const selectedCard = cardArray.filter(card => {
+        return card.id === id
+      })
+      selectedCard[0].favorited = !selectedCard[0].favorited
+      return selectedCard
+    } else {
+      return cardArray.filter(card => {
+        return card.id !== id
+      })
+    }
   }
 
   render() {

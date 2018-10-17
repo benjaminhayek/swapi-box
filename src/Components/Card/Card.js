@@ -5,12 +5,16 @@ const Card = (props) => {
   const cardData = props.properties.map((property, i) => {
     return <div key={property + i}>{property}</div>
   })
+  console.log(cardData)
   return(
     <div className='card'>
       <h3>{props.name}</h3>
       {cardData}
       <div>
-        <button onClick={() => props.favoriteACard(props.id)}>
+        <button 
+          onClick={() => props.favoriteACard(props.id)}
+          className={props.favorited ? 'favorited' : 'null'}
+        >
           Favs
         </button>
       </div>
