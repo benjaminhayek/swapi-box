@@ -8,7 +8,7 @@ const Button = ({ buttonHasBeenPressed, directory, selected }) => {
           onClick={() => buttonHasBeenPressed( null,'favorites')} 
           className={`${selected.favorite ? 'selected': null} favorites-btn button`}>
           <i className="fab fa-trade-federation"></i>
-            Favorites=0
+            {`Favorites${directory.favorites.length}`}
         </button>
         <button 
           onClick={() => buttonHasBeenPressed(directory.people, 'people')}  
