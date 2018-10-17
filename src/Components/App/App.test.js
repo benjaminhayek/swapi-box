@@ -106,11 +106,24 @@ describe('App', () => {
   })
 
   it('should set state when a card is favorited', () => {
-    const expected = []
-    wrapper.state().starWarsDirectory.people = [{favorited: true}]
+    const expected = {"favorites": [{"favorited": false, "id": "0people"}], "people": [{"favorited": false, "id": "0people"}], "planets": {}, "vehicles": {}};
+
+    wrapper.state().starWarsDirectory.people = [
+    {id: '0people', favorited: true}]
 
     wrapper.instance().favoriteACard('0people')
 
     expect(wrapper.state().starWarsDirectory).toEqual(expected)
-  })  
+  })
+  it('should filter out a card if the lengths are not equal', () => {
+    const expected = {"favorites": [{"favorited": false, "id": "1people"}], "people": [{"favorited": true, "id": "0people"}], "planets": {}, "vehicles": {}};
+    wrapper.state().starWarsDirectory.favorites = [
+    {id: '0people', favorited: false}, {id: '1people', favorited: false}]
+    wrapper.state().starWarsDirectory.people = [
+    {id: '0people', favorited: false}]
+
+    wrapper.instance().favoriteACard('0people');
+
+    expect(wrapper.state().starWarsDirectory).toEqual(expected)
+  })
 });

@@ -29,7 +29,7 @@ exports[`Card matches the snapshot 1`] = `
   </div>
   <div>
     <button
-      className={null}
+      className="selected"
       onClick={[Function]}
     >
       Favs

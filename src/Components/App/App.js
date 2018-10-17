@@ -28,7 +28,6 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    debugger
     let movieScrollData;
     const URLs = await API.searchStarWarsAPI();
     if(API.checkLocalStorage('movieScroll')) {
@@ -109,6 +108,7 @@ class App extends Component {
   }
 
   filterFavorties = (cardArray, id, selected = false) => {
+    debugger;
     if(selected === true) {
       const selectedCard = cardArray.filter(card => {
         return card.id === id
