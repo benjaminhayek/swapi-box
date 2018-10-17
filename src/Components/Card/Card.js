@@ -12,7 +12,7 @@ const Card = (props) => {
       <div>
         <button 
           onClick={() => props.favoriteACard(props.id)}
-          className={props.favorited ? 'selected' : 'null'}
+          className={props.favorited ? 'favorited' : 'null'}
         >
           Favs
         </button>
