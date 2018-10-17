@@ -28,6 +28,7 @@ class App extends Component {
   }
 
   async componentDidMount() {
+    debugger
     let movieScrollData;
     const URLs = await API.searchStarWarsAPI();
     if(API.checkLocalStorage('movieScroll')) {
@@ -81,18 +82,6 @@ class App extends Component {
     return newButtonState
   }
 
-  filterFavorties = (cardArray, id, selected = false) => {
-    if(selected === true) {
-      return cardArray.filter(card => {
-        return card.id === id
-      })
-    } else {
-      return cardArray.filter(card => {
-        return card.id !== id
-      })
-    }
-  }
-
   favoriteACard = (id) => {
     let newCards;
     const category = [...id].splice(1, 10).join('');
@@ -101,7 +90,6 @@ class App extends Component {
     const newCategory = this.filterFavorties(state[category], id)
     const selectedCard = this.filterFavorties(state[category], id, true)
 
-    selectedCard[0].favorited = !selectedCard[0].favorited
     if(state.favorites.length !== checkingFavorites.length) {
       newCards = checkingFavorites
     } else {
@@ -118,6 +106,20 @@ class App extends Component {
       favorites: newCards
       }
     })
+  }
+
+  filterFavorties = (cardArray, id, selected = false) => {
+    if(selected === true) {
+      const selectedCard = cardArray.filter(card => {
+        return card.id === id
+      })
+      selectedCard[0].favorited = !selectedCard[0].favorited
+      return selectedCard
+    } else {
+      return cardArray.filter(card => {
+        return card.id !== id
+      })
+    }
   }
 
   render() {

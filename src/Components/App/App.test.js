@@ -103,5 +103,14 @@ describe('App', () => {
 
     await wrapper.instance().buttonHasBeenPressed(null, 'vehicles');
     expect(wrapper.state().starWarsDirectory).toEqual(expected)
+  })
+
+  it('should set state when a card is favorited', () => {
+    const expected = []
+    wrapper.state().starWarsDirectory.people = [{favorited: true}]
+
+    wrapper.instance().favoriteACard('0people')
+
+    expect(wrapper.state().starWarsDirectory).toEqual(expected)
   })  
 });
