@@ -4,6 +4,7 @@ import Button from '../Button/Button';
 import Scroll from '../Scroll/Scroll';
 import * as API from '../API/API';
 import ErrorHandler from '../ErrorHandler/ErrorHandler';
+import { Route, NavLink } from 'react-router-dom';
 
 
 class App extends Component {
