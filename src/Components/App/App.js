@@ -70,6 +70,7 @@ class App extends Component {
   }
 
   changeButtonValues = (buttonName) => {
+    debugger;
     let newButtonState = {}
     Object.keys(this.state.stateOfButtons).forEach(button => {
       if(button === buttonName) {

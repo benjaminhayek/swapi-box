@@ -6,7 +6,7 @@ const CardContainer = ({starWarsDirectory, stateOfButtons, favoriteACard, favori
   const cardCategory = Object.keys(stateOfButtons).filter(category => {
     return stateOfButtons[category]
   }).toString();
-  let cards;
+  let cards = [];
   if(typeof starWarsDirectory[cardCategory] === 'object') {
     cards = starWarsDirectory[cardCategory].map((card, i) => {
       return <Card

@@ -6,7 +6,7 @@ const Button = ({ buttonHasBeenPressed, directory, selected }) => {
       <section className="button-container">
         <button 
           onClick={() => buttonHasBeenPressed( null,'favorites')} 
-          className={`${selected.favorite ? 'selected': null} favorites-btn button`}>
+          className={`${selected.favorites ? 'selected': null} favorites-btn button`}>
           <i className="fab fa-trade-federation"></i>
             {`Favorites${directory.favorites.length}`}
         </button>
