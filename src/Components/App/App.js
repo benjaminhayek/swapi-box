@@ -108,7 +108,6 @@ class App extends Component {
   }
 
   filterFavorties = (cardArray, id, selected = false) => {
-    debugger;
     if(selected === true) {
       const selectedCard = cardArray.filter(card => {
         return card.id === id

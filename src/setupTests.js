@@ -4,13 +4,28 @@ import { createSerializer } from 'enzyme-to-json';
 
 expect.addSnapshotSerializer(createSerializer({mode: 'deep'}));
 
-const localStorageMock = {
-  getItem: (key) => store[key],
-  setItem: jest.fn(),
-  clear: jest.fn()
-};
-
-const mockfetch = 
 configure({ adapter: new Adapter() });
 
-global.localStorage = localStorageMock;
+class LocalStorageMock {
+ constructor() {
+   this.store = {};
+ }
+
+ clear() {
+   this.store = {};
+ }
+
+ getItem(key) {
+   return this.store[key] || null;
+ }
+
+ setItem(key, value) {
+   this.store[key] = value.toString();
+ }
+
+ removeItem(key) {
+   delete this.store[key];
+ }
+};
+
+global.localStorage = new LocalStorageMock;
