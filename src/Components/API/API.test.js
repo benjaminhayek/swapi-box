@@ -2,10 +2,15 @@ import * as API from '../API/API';
 
 describe('API', () => {
   it('should be called with the correct params', async () => {
-    window.fetch = jest.fn().mockImplementation(() => ({
-      status: 200,
-      json: () => Promise.resolve({results: []})
-    }))
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve({
+          "favorites": [], 
+          "people": {}, 
+          "planets": {}, 
+          "vehicles": {}
+        })
+      }))
     const expected = "https://swapi.co/api/"
 
     await API.searchStarWarsAPI();
