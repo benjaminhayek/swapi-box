@@ -18,18 +18,20 @@ const Button = ({ buttonHasBeenPressed, directory, selected }) => {
           <i className="fab fa-jedi-order"></i>
             People
         </NavLink>
-        <button 
+        <NavLink 
+          to='/planets'
           onClick={() => buttonHasBeenPressed(directory.planets, 'planets')}  
-          className={`${selected.planets ? 'selected': null} planets-btn button`} >
+          className={`${selected.planets ? 'selected': null} planets-btn button`}>
           <i className="fab fa-empire"></i>
             Planets
-        </button>
-        <button 
+        </NavLink>
+        <NavLink
+          to='/vehicles'
           onClick={() => buttonHasBeenPressed(directory.vehicles, 'vehicles')}  
           className={`${selected.vehicles ? 'selected': null} vehicles-btn button`}>
           <i className="fab fa-galactic-republic"></i>
             Vehicles
-        </button>
+        </NavLink>
       </section>
     )
   }
