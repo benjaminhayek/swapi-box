@@ -19,7 +19,6 @@ const CardContainer = ({starWarsDirectory, stateOfButtons, favoriteACard, favori
                 /> 
               })
             }
-    console.log(cards)
     return (
       <section className={`${cards.length <=0 ? 'no-favs-container' : ''}card-container`}>
         {cards.length <= 0? <div class='no-favs'>NoFavs</div>: cards}
