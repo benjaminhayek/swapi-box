@@ -3,13 +3,11 @@ import './CardContainer.css';
 import Card from '../Card/Card';
 import { Route, NavLink } from 'react-router-dom';
 
-const CardContainer = ({starWarsDirectory, stateOfButtons, favoriteACard, favorited}) => {
-  const cardCategory = Object.keys(stateOfButtons).filter(category => {
-    return stateOfButtons[category]
-  }).toString();
+const CardContainer = ({starWarsDirectory, stateOfButtons, favoriteACard, favorited, category}) => {
+  const cardCategory = category
   let cards = [];
-  if(typeof starWarsDirectory[cardCategory] === 'object') {
-    cards = starWarsDirectory[cardCategory].map((card, i) => {
+  if(typeof starWarsDirectory === 'object') {
+    cards = starWarsDirectory.map((card, i) => {
       return  <Route exact path={`/${cardCategory}`} 
                 render={ () => {
                   return (
