@@ -1,5 +1,7 @@
 import React from 'react';
 import './Card.css';
+import img1 from '../../images/mil-falc.svg';
+import img2 from '../../images/death-star.svg';
 
 const Card = (props) => {
   const cardData = props.properties.map((property, i) => {
@@ -7,15 +9,16 @@ const Card = (props) => {
   })
   return(
     <div className='card'>
-      <h3>{props.name}</h3>
-      {cardData}
-      <div>
         <button 
           onClick={() => props.favoriteACard(props.id)}
           className={props.favorited ? 'favorited' : 'null'}
         >
-          Favs
+        <img src={props.favorited ? img2 : img1} className='mil-falc' />
+          <h3>Favorite</h3>
         </button>
+      <h3>{props.name}</h3>
+      {cardData}
+      <div>
       </div>
     </div>
   )

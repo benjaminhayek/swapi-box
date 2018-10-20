@@ -45,16 +45,6 @@ class App extends Component {
     })
   }
 
- //  componentDidUpdate = async () => {
- //   let browserUrl = window.location.pathname.slice(1)
- //   const selectedCategory = Object.keys(this.state.stateOfButtons).filter(button => this.state.stateOfButtons[button] === true).toString()
- //      let URLs = `"https://swapi.co/api/${selectedCategory}"`;
- //     if(browserUrl !== '' && browserUrl !== selectedCategory && browserUrl !== 'movieScroll'){
- //       this.buttonHasBeenPressed(`${URLs}, '${selectedCategory}'`)
- //       console.log(URLs)
- //   }
- // }
-
   buttonHasBeenPressed = async (url, categoryName) => {
     let newCards;
     if(API.checkLocalStorage(categoryName)){
