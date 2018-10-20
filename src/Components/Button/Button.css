@@ -72,9 +72,10 @@ button:focus {
     display: inline-flex;
     grid-template-areas: 
     'button'
+    'header'
     'card-container';
     position: absolute;
-    width: 117%;
+    width: 100%;
     font-size: 0px;
     justify-content: space-around; 
   }
@@ -82,12 +83,12 @@ button:focus {
     display: flex;
   }
   .fab {
-    font-size: 60px;
+    font-size: 40px;
   }
   .selected .fab {
-    font-size: 60px;
+    font-size: 40px;
   }
   .fab:hover {
-    font-size: 70px;
+    font-size: 50px;
   }
 }

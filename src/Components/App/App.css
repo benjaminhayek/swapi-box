@@ -63,6 +63,11 @@ header {
   header {
     font-size: 1em;
   }
+
+  .title {
+    margin-top: 0;
+  }
+
   .button-container {
     display: inline-flex;
     grid-template-areas: 
@@ -87,45 +92,7 @@ header {
   }
 }
 
-@media screen and (max-width: 400px) {
-  .App {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 100px 100px 1fr; 
-    grid-template-areas: 
-    'button'
-    'header'
-    'card-container'
-  }
-  header {
-    font-size: 1em;
-  }  
-
-  .button-container {
-    display: inline-flex;
-    grid-template-areas: 
-    'button'
-    'card-container';
-    position: absolute;
-    width: 100%;
-    font-size: 0px;
-    justify-content: space-around; 
-  }
-  .button {
-    display: flex;
-  }
-  .fab {
-    font-size: 60px;
-  }
-  .selected .fab {
-    font-size: 60px;
-  }
-  .fab:hover {
-    font-size: 70px;
-  }
-}
-
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 544px) {
   .App {
     display: grid;
     grid-template-columns: 1fr;
@@ -137,28 +104,12 @@ header {
   }
   header {
     font-size: .75em;
-  }  
+  }
 
-  .button-container {
-    display: inline-flex;
-    grid-template-areas: 
-    'button'
-    'card-container';
-    position: absolute;
-    width: 100%;
-    font-size: 0px;
-    justify-content: space-around; 
-  }
-  .button {
-    display: flex;
-  }
-  .fab {
-    font-size: 40px;
-  }
-  .selected .fab {
-    font-size: 40px;
-  }
-  .fab:hover {
-    font-size: 50px;
+  .title {
+    margin-top: 0;
   }
 }
+
+
+
