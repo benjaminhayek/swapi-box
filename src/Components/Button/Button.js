@@ -1,6 +1,7 @@
 import React from 'react';
 import './Button.css';
-import { Route, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Button = ({ buttonHasBeenPressed, directory, selected }) => {
     return (
@@ -36,5 +37,10 @@ const Button = ({ buttonHasBeenPressed, directory, selected }) => {
     )
   }
 
+Button.propTypes = {
+  buttonHasBeenPressed: PropTypes.func,
+  directory: PropTypes.object,
+  selected: PropTypes.object
+};
 
 export default Button;

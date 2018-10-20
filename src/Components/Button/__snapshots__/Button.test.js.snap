@@ -1,44 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button matches the snapshot 1`] = `
-<section
-  className="button-container"
->
-  <button
-    className="null favorites-btn button"
-    onClick={[Function]}
-  >
-    <i
-      className="fab fa-trade-federation"
-    />
-    Favorites=0
-  </button>
-  <button
-    className="null people-btn button"
-    onClick={[Function]}
-  >
-    <i
-      className="fab fa-jedi-order"
-    />
-    People
-  </button>
-  <button
-    className="null planets-btn button"
-    onClick={[Function]}
-  >
-    <i
-      className="fab fa-empire"
-    />
-    Planets
-  </button>
-  <button
-    className="null vehicles-btn button"
-    onClick={[Function]}
-  >
-    <i
-      className="fab fa-galactic-republic"
-    />
-    Vehicles
-  </button>
-</section>
+<Route>
+  <Component />
+</Route>
 `;
