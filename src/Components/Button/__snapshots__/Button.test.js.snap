@@ -1,7 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button matches the snapshot 1`] = `
-<Route>
-  <Component />
-</Route>
+<section
+  className="button-container"
+>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    className="null favorites-btn button"
+    onClick={[Function]}
+    to="/favorites"
+  >
+    <i
+      className="fab fa-trade-federation"
+    />
+    Favorites 0
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    className="null people-btn button"
+    onClick={[Function]}
+    to="/people"
+  >
+    <i
+      className="fab fa-jedi-order"
+    />
+    People
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    className="null planets-btn button"
+    onClick={[Function]}
+    to="/planets"
+  >
+    <i
+      className="fab fa-empire"
+    />
+    Planets
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    className="null vehicles-btn button"
+    onClick={[Function]}
+    to="/vehicles"
+  >
+    <i
+      className="fab fa-galactic-republic"
+    />
+    Vehicles
+  </NavLink>
+</section>
 `;
