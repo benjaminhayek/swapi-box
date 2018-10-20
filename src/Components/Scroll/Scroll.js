@@ -4,6 +4,7 @@ import Crawl from 'react-star-wars-crawl';
 import 'react-star-wars-crawl/lib/index.css';
 import CardContainer from '../CardContainer/CardContainer';
 import {Route} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Scroll = ({ movieScroll, starWarsDirectory, stateOfButtons, favoriteACard }) => {
   const getRandomIndice = Math.floor(Math.random() * Math.floor(6));
@@ -59,5 +60,12 @@ const Scroll = ({ movieScroll, starWarsDirectory, stateOfButtons, favoriteACard 
     </section>
   )
 }
+
+Scroll.propTypes = {
+  starWarsDirectory: PropTypes.array,
+  movieScroll: PropTypes.array,
+  favoriteACard: PropTypes.func,
+  stateOfButtons: PropTypes.object
+};
 
 export default Scroll;

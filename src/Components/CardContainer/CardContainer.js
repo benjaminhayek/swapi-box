@@ -38,7 +38,7 @@ CardContainer.propTypes = {
   stateOfButtons: PropTypes.object,
   favoriteACard: PropTypes.func,
   favorited: PropTypes.object,
-  category: PropTypes.object
+  category: PropTypes.string
 };
 
 export default CardContainer;
