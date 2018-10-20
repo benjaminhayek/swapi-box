@@ -2,6 +2,7 @@ import React from 'react';
 import './Card.css';
 import img1 from '../../images/mil-falc.svg';
 import img2 from '../../images/death-star.svg';
+import PropTypes from 'prop-types';
 
 const Card = (props) => {
   const cardData = props.properties.map((property, i) => {
@@ -23,5 +24,9 @@ const Card = (props) => {
     </div>
   )
 }
+
+Card.propTypes = {
+  props: PropTypes.object
+};
 
 export default Card;

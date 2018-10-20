@@ -2,6 +2,7 @@ import React from 'react';
 import './CardContainer.css';
 import Card from '../Card/Card';
 import { Route, NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const CardContainer = ({starWarsDirectory, stateOfButtons, favoriteACard, favorited, category}) => {
   const cardCategory = category
@@ -31,5 +32,13 @@ const CardContainer = ({starWarsDirectory, stateOfButtons, favoriteACard, favori
       </section>
     );
 }
+
+CardContainer.propTypes = {
+  starWarsDirectory: PropTypes.array,
+  stateOfButtons: PropTypes.object,
+  favoriteACard: PropTypes.func,
+  favorited: PropTypes.object,
+  category: PropTypes.object
+};
 
 export default CardContainer;
