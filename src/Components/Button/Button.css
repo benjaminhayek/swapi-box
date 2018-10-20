@@ -13,6 +13,7 @@ button:focus {
   width: 150px;
   color: white;
   border-right: solid 1px white;
+  z-index: 2;
 }
 .button {
   justify-content: space-between;
@@ -22,6 +23,7 @@ button:focus {
   border: none;
   justify-self: center;
   display: inherit;
+  text-decoration: none;
 }
 
 .fab {
