@@ -23,7 +23,7 @@ describe('Card', () => {
     expect(favoriteACard).toBeCalled()
   })
   it('should toggle class based on boolean', () => {
-    expect(wrapper.find('.selected').length).toEqual(1)
+    expect(wrapper.find('.favorited').length).toEqual(1)
   })
   it('should toggle class based on boolean', () => {
     wrapper = shallow(<Card 
