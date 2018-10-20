@@ -9,7 +9,7 @@ const Button = ({ buttonHasBeenPressed, directory, selected }) => {
           onClick={() => buttonHasBeenPressed( null,'favorites')} 
           className={`${selected.favorites ? 'selected': null} favorites-btn button`}>
         <i className="fab fa-trade-federation"></i>
-            {`Favorites${directory.favorites.length}`}
+            {`Favorites ${directory.favorites.length}`}
       </NavLink>
         <NavLink to='/people' 
           onClick={() => buttonHasBeenPressed(directory.people, 'people')}  

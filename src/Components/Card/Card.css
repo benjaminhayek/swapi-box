@@ -10,6 +10,7 @@
   justify-items: left;
   padding-left: 7px;
   margin-bottom: 6em;
+  font-family: 'Russo One', sans-serif;
 }
 
 .favorited {
@@ -31,4 +32,10 @@ button {
   border: none;
   color: white;
   display: inline-block;
+}
+
+.mil-falc:hover {
+  height: 40px;
+  transition: all .25s ease-in-out;
+  cursor: pointer;
 }
