@@ -4,41 +4,53 @@ exports[`Button matches the snapshot 1`] = `
 <section
   className="button-container"
 >
-  <button
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
     className="null favorites-btn button"
     onClick={[Function]}
+    to="/favorites"
   >
     <i
       className="fab fa-trade-federation"
     />
-    Favorites=0
-  </button>
-  <button
+    Favorites 0
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
     className="null people-btn button"
     onClick={[Function]}
+    to="/people"
   >
     <i
       className="fab fa-jedi-order"
     />
     People
-  </button>
-  <button
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
     className="null planets-btn button"
     onClick={[Function]}
+    to="/planets"
   >
     <i
       className="fab fa-empire"
     />
     Planets
-  </button>
-  <button
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
     className="null vehicles-btn button"
     onClick={[Function]}
+    to="/vehicles"
   >
     <i
       className="fab fa-galactic-republic"
     />
     Vehicles
-  </button>
+  </NavLink>
 </section>
 `;

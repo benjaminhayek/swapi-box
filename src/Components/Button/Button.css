@@ -13,6 +13,8 @@ button:focus {
   width: 150px;
   color: white;
   border-right: solid 1px white;
+  z-index: 2;
+  grid-area: button;
 }
 .button {
   justify-content: space-between;
@@ -22,6 +24,8 @@ button:focus {
   border: none;
   justify-self: center;
   display: inherit;
+  text-decoration: none;
+  font-family: 'Russo One', sans-serif;
 }
 
 .fab {
@@ -36,4 +40,55 @@ button:focus {
 .selected .fab {
   font-size: 120px;
   color: #FEDA4B;
+}
+
+@media screen and (max-width: 544px) {
+  .button-container {
+    display: inline-flex;
+    grid-template-areas: 
+    'button'
+    'card-container';
+    position: absolute;
+    width: 100%;
+    font-size: 0px;
+    justify-content: space-around; 
+  }
+  .button {
+    display: flex;
+  }
+  .fab {
+    font-size: 80px;
+  }
+  .selected .fab {
+    font-size: 80px;
+  }
+  .fab:hover {
+    font-size: 90px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .button-container {
+    display: inline-flex;
+    grid-template-areas: 
+    'button'
+    'header'
+    'card-container';
+    position: absolute;
+    width: 100%;
+    font-size: 0px;
+    justify-content: space-around; 
+  }
+  .button {
+    display: flex;
+  }
+  .fab {
+    font-size: 40px;
+  }
+  .selected .fab {
+    font-size: 40px;
+  }
+  .fab:hover {
+    font-size: 50px;
+  }
 }

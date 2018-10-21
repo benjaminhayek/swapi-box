@@ -4,6 +4,18 @@ exports[`Card matches the snapshot 1`] = `
 <div
   className="card"
 >
+  <button
+    className="favorited"
+    onClick={[Function]}
+  >
+    <img
+      className="mil-falc"
+      src="death-star.svg"
+    />
+    <h3>
+      Favorite
+    </h3>
+  </button>
   <h3>
     meow
   </h3>
@@ -27,13 +39,6 @@ exports[`Card matches the snapshot 1`] = `
   >
     meow
   </div>
-  <div>
-    <button
-      className="selected"
-      onClick={[Function]}
-    >
-      Favs
-    </button>
-  </div>
+  <div />
 </div>
 `;

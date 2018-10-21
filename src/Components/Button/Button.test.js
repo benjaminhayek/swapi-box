@@ -1,14 +1,15 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import Button from './Button'
+import Button from './Button';
+import { NavLink } from 'react-router-dom';
 
 describe('Button', () => {
   let wrapper;
   let buttonHasBeenPressed = jest.fn()
-  let stateOfButtons = {favorite: false, people: false, vehicles: false, planets: false}
+  let stateOfButtons = {favorites: false, people: false, vehicles: false, planets: false}
 
   beforeEach(() => {
-    wrapper = shallow(<Button directory={{'people': 'people'}} buttonHasBeenPressed={buttonHasBeenPressed} selected={stateOfButtons} />);
+    wrapper = shallow(<Button directory={{'people': 'people', 'favorites': []}} buttonHasBeenPressed={buttonHasBeenPressed} selected={stateOfButtons} />);
   });
 
   it('matches the snapshot', () => {
@@ -16,7 +17,6 @@ describe('Button', () => {
   });
 
   it('should call buttonHasBeenPressed function on click', () => {
-    // window.console.log = jest.fn();
     wrapper.find('.favorites-btn').simulate('click');
     expect(buttonHasBeenPressed).toBeCalled();
   });
@@ -38,14 +38,14 @@ describe('Button', () => {
   it('should render the selected class to null if false', () => {
     expect(wrapper.find('.selected').length).toEqual(0)
   })
-    it('should render the selected class to null if false', () => {
-    wrapper = shallow(<Button directory={{'people': 'people'}} buttonHasBeenPressed={buttonHasBeenPressed} selected={{favorite: true}} />)
+  it('should render the selected class to null if false', () => {
+    wrapper = shallow(<Button directory={{'people': 'people', 'favorites': []}} buttonHasBeenPressed={buttonHasBeenPressed} selected={{favorites: true}} />)
     expect(wrapper.find('.selected').length).toEqual(1)
-    wrapper = shallow(<Button directory={{'people': 'people'}} buttonHasBeenPressed={buttonHasBeenPressed} selected={{vehicles: true}} />)
+    wrapper = shallow(<Button directory={{'people': 'people', 'favorites': []}} buttonHasBeenPressed={buttonHasBeenPressed} selected={{vehicles: true}} />)
     expect(wrapper.find('.selected').length).toEqual(1)
-    wrapper = shallow(<Button directory={{'people': 'people'}} buttonHasBeenPressed={buttonHasBeenPressed} selected={{people: true}} />)
+    wrapper = shallow(<Button directory={{'people': 'people', 'favorites': []}} buttonHasBeenPressed={buttonHasBeenPressed} selected={{people: true}} />)
     expect(wrapper.find('.selected').length).toEqual(1)
-    wrapper = shallow(<Button directory={{'people': 'people'}} buttonHasBeenPressed={buttonHasBeenPressed} selected={{planets: true}} />)
+    wrapper = shallow(<Button directory={{'people': 'people', 'favorites': []}} buttonHasBeenPressed={buttonHasBeenPressed} selected={{planets: true}} />)
     expect(wrapper.find('.selected').length).toEqual(1)        
   })
 });

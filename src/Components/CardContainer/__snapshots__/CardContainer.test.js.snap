@@ -4,10 +4,10 @@ exports[`CardContainer matches the snapshot 1`] = `
 <section
   className="card-container"
 >
-  <Card
-    key="0people"
-    name="stupid"
-    properties={Object {}}
+  <Route
+    exact={true}
+    path="/undefined"
+    render={[Function]}
   />
 </section>
 `;
