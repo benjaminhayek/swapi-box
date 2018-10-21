@@ -21,6 +21,25 @@ header {
   grid-area: header;
   z-index: 2;
 }
+.load{
+  height: 100vh;
+  background: black;
+  display: flex;
+  justify-content: center;
+  justify-content: center;
+}
+
+.load-image{
+  animation-name: spin;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: step-middle;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+} 
 .title {
   background-color: #000;
   align-items: center;

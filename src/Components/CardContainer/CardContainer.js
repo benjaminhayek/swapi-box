@@ -3,6 +3,7 @@ import './CardContainer.css';
 import Card from '../Card/Card';
 import { Route, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import swLoadGif from '../../images/2048.svg'
 
 const CardContainer = ({starWarsDirectory, stateOfButtons, favoriteACard, favorited, category}) => {
   const cardCategory = category
@@ -26,11 +27,18 @@ const CardContainer = ({starWarsDirectory, stateOfButtons, favoriteACard, favori
                 /> 
               })
             }
+  if(cards.length <= 0 && cardCategory === 'favorites') {
     return (
       <section className={`${cards.length <=0 ? 'no-favs-container' : ''}card-container`}>
         {cards.length <= 0? <div className='no-favs'>NoFavs</div>: cards}
+      </section>);
+  } else {
+    return (
+      <section className={`${cards.length <=0 ? 'load' : ''}card-container`}> 
+        {cards.length <= 0? <img className='load-image'src={swLoadGif} />: cards} 
       </section>
-    );
+    )
+  }
 }
 
 CardContainer.propTypes = {
