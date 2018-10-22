@@ -5,6 +5,7 @@ import Scroll from '../Scroll/Scroll';
 import * as API from '../API/API';
 import ErrorHandler from '../ErrorHandler/ErrorHandler';
 import { Route, NavLink } from 'react-router-dom';
+import swLoadGif from '../../images/2048.svg'
 
 
 class App extends Component {
@@ -125,7 +126,9 @@ class App extends Component {
   render() {
     const { movieScroll, isLoaded, starWarsDirectory, stateOfButtons} = this.state
     if(!isLoaded){
-      return <div> Loading.... </div>;
+      return (<div className='load'> 
+                <img className='load-image'src={swLoadGif} /> 
+              </div>)
     } else { 
       return (
         <ErrorHandler>
