@@ -10,3 +10,4 @@
 ### NPM start
 ### Visit localhost:3000
 
+## Swapi-box uses the star wars api to fetch data and we implemented a user interface to display the data on cards based on what information we wanted. This project used react as well as react router. We implemented local storage in order to save form making multiple fetch calls.
