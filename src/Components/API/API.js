@@ -7,7 +7,7 @@ export const searchStarWarsAPI = async (url) => {
       return await response.json();
     }
   }
-  catch (Error) {
+  catch {
     throw Error('Problem with fetch');
   }
 };
