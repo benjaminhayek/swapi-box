@@ -83,10 +83,10 @@ button:focus {
     display: flex;
   }
   .fab {
-    font-size: 40px;
+    font-size: 45px;
   }
   .selected .fab {
-    font-size: 40px;
+    font-size: 45px;
   }
   .fab:hover {
     font-size: 50px;
